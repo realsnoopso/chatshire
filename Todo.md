@@ -2,16 +2,16 @@
 
 1. 컴포넌트 제작
 
-- [ ] Button
+- [x] Button
   - large / normal / small
   - normal / loading
   - icon / X
+- [x] Icon
 - [ ] GNB
 - [ ] Selectbox
 - [ ] Textinput
 - [ ] Card
 - [ ] Tag
 - [ ] Loading
-- [ ] Icon
 
 2. 페이지 제작

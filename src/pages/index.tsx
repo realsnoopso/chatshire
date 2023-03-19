@@ -1,11 +1,20 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import { Inter } from 'next/font/google';
-import { Button, Icon, Gnb, TextArea, SelectBox } from '@components/index';
+import {
+  Button,
+  Icon,
+  Gnb,
+  TextArea,
+  SelectBox,
+  Card,
+} from '@components/index';
+import { getStyleRoot } from './indexStyle';
 
 const inter = Inter({ subsets: ['latin'] });
 
 export default function Home() {
+  const styleRoot = getStyleRoot();
   return (
     <>
       <Head>
@@ -15,7 +24,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Gnb></Gnb>
-      <main>
+      <main className={styleRoot}>
         <Button size="large">Generate</Button>
         <Button size="large" loading>
           Loading...
@@ -57,7 +66,24 @@ export default function Home() {
           ]}
           defaultOption="Select Chain"
         ></SelectBox>
-        <TextArea btn="Generate" placeholder="Cast your spell 🪄"></TextArea>
+        <TextArea
+          btn="Generate"
+          placeholder="Cast your spell 🪄"
+          _onClick={() => {}}
+        ></TextArea>
+        <div className="card-container">
+          <Card
+            firstTag="Ethereum"
+            secondTag="Maker DAO"
+            icon="copy"
+            _onClick={() => {}}
+          >
+            Give me the transaction hash with the largest amountGive me the
+            transaction hash with the largest amount
+          </Card>
+          <Card icon="copy">dasfsdafd</Card>
+          <Card icon="copy">dasfsdafd</Card>
+        </div>
       </main>
     </>
   );

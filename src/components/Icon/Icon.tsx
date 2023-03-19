@@ -1,8 +1,8 @@
 import { forwardRef, useEffect, useState } from 'react';
 import * as assets from '@src/assets/index.js';
-import { styleRoot } from './IconStyle';
+import { getStyleRoot } from './IconStyle';
 
-type IconType = keyof typeof assets;
+export type IconType = keyof typeof assets;
 
 interface Icon {
   name: IconType;
@@ -62,6 +62,10 @@ const Icon = forwardRef((props: Icon) => {
 
     fetchSVGData();
   }, [url]);
+
+  const isOnClick = _onClick ? true : false;
+
+  const styleRoot = getStyleRoot(isOnClick);
 
   return (
     <div

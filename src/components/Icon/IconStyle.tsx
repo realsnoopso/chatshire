@@ -1,4 +1,11 @@
 import { css } from '@emotion/css';
-export const styleRoot = css`
-  display: inline-block;
-`;
+
+export function getStyleRoot(isOnClick: boolean) {
+  return css`
+    display: inline-block;
+
+    &:hover {
+      ${isOnClick && 'cursor: pointer;'}
+    }
+  `;
+}

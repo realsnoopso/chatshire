@@ -10,6 +10,7 @@ export const styleRoot = css`
   color: var(--primary-500);
   height: 32px;
 
+  font-family: 'Red Hat Display', sans-serif;
   font-weight: 700;
   font-size: 13px;
   line-height: 16px;

@@ -14,6 +14,11 @@ export const styleRoot = css`
     align-items: center;
     justify-content: space-between;
 
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: 0.01em;
+
     height: 52px;
     border: 1px solid var(--gray-800);
     outline: none;
@@ -29,6 +34,11 @@ export const styleRoot = css`
       display: flex;
       align-items: center;
       gap: 10px;
+
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 19px;
+      letter-spacing: 0.01em;
     }
   }
 
@@ -43,6 +53,11 @@ export const styleRoot = css`
     position: absolute;
     width: 100%;
     top: calc(52px + 4px);
+
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: 0.01em;
   }
 
   .option {

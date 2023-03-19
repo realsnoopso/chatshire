@@ -20,6 +20,19 @@ export const styleRoot = css`
     outline: none;
     border: none;
     height: 83px;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: 'Inter', sans-serif;
+
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: 0.01em;
+  }
+
+  textarea::placeholder {
+    color: var(--gray-500);
   }
 
   textarea:focus {

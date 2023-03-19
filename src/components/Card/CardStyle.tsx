@@ -18,11 +18,18 @@ export const styleRoot = css`
     margin-bottom: 12px;
 
     color: var(--gray-300);
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 16px;
+    letter-spacing: 0.01em;
   }
 
   .content {
     margin-bottom: 12px;
     height: 100%;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 140%;
   }
 
   .icon-btn-container {

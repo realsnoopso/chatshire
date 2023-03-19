@@ -3,7 +3,7 @@ import { styleRoot } from './ButtonStyle';
 
 interface Button {
   children: React.ReactNode;
-  style?: string;
+  style?: React.CSSProperties;
   _onClick?: () => void;
   size?: 'large' | 'small';
   loading?: boolean;

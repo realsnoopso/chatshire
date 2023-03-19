@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { Inter } from 'next/font/google';
 import styles from '@/styles/Home.module.css';
 import Button from '@components/Button/Button';
+import Icon from '@components/Icon/Icon';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -23,6 +24,7 @@ export default function Home() {
         <Button>Connect Wallet</Button>
         <Button size="small">Show Edit</Button>
         <Button size="small">Hide Edit</Button>
+        <Icon name="copy" fill="red"></Icon>
       </main>
     </>
   );

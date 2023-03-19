@@ -1,9 +1,7 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import { Inter } from 'next/font/google';
-import styles from '@/styles/Home.module.css';
-import Button from '@components/Button/Button';
-import Icon from '@components/Icon/Icon';
+import { Button, Icon, Gnb } from '@components/index';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -16,6 +14,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <Gnb></Gnb>
       <main>
         <Button size="large">Generate</Button>
         <Button size="large" loading>
@@ -24,7 +23,9 @@ export default function Home() {
         <Button>Connect Wallet</Button>
         <Button size="small">Show Edit</Button>
         <Button size="small">Hide Edit</Button>
-        <Icon name="copy" fill="red"></Icon>
+        <Icon name="copy" fill="red" size={56}></Icon>
+        <Icon name="chevron_down" fill="red" size={56}></Icon>
+        <Icon name="chevron_up" fill="red" size={56}></Icon>
       </main>
     </>
   );

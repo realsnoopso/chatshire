@@ -2,6 +2,7 @@ import Head from 'next/head';
 import Image from 'next/image';
 import { Inter } from 'next/font/google';
 import { Button, Icon, Gnb } from '@components/index';
+import SelectBox from '@/components/SelectBox/SelectBox';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -23,9 +24,40 @@ export default function Home() {
         <Button>Connect Wallet</Button>
         <Button size="small">Show Edit</Button>
         <Button size="small">Hide Edit</Button>
-        <Icon name="copy" fill="red" size={56}></Icon>
-        <Icon name="chevron_down" fill="red" size={56}></Icon>
-        <Icon name="chevron_up" fill="red" size={56}></Icon>
+        <Icon name="copy" size={56}></Icon>
+        <Icon name="chevron_down" size={56}></Icon>
+        <Icon name="chevron_up" size={56}></Icon>
+        <SelectBox
+          options={[
+            'test',
+            'test2',
+            'test2',
+            'test2',
+            'test2',
+            'test2',
+            'test2',
+            'test2',
+            'test2',
+            'test2',
+            'test2',
+            'test2',
+            'test2',
+            'test2',
+            'test2',
+            'test2',
+            'test2',
+            'test2',
+            'test2',
+            'test2',
+            'test2',
+            'test2',
+            'test2',
+            'test2',
+            'test2',
+            'test2',
+          ]}
+          defaultOption="Select Chain"
+        ></SelectBox>
       </main>
     </>
   );

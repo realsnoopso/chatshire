@@ -1,5 +1,6 @@
 import { forwardRef, useEffect, useState } from 'react';
 import * as assets from '@src/assets/index.js';
+import { styleRoot } from './IconStyle';
 
 type IconType = keyof typeof assets;
 
@@ -64,6 +65,7 @@ const Icon = forwardRef((props: Icon) => {
 
   return (
     <div
+      className={styleRoot}
       onClick={_onClick}
       dangerouslySetInnerHTML={{ __html: svgContent || '' }}
     ></div>

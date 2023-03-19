@@ -15,7 +15,7 @@ const Gnb = React.forwardRef((props: Gnb) => {
 
   return (
     <div className={styleRoot}>
-      <Icon name="logo" fill="red" _onClick={clickLogo}></Icon>
+      <Icon name="logo" _onClick={clickLogo}></Icon>
       <Button _onClick={clickLogo}>Connect Wallet</Button>
     </div>
   );

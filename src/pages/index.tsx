@@ -1,8 +1,7 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import { Inter } from 'next/font/google';
-import { Button, Icon, Gnb } from '@components/index';
-import SelectBox from '@/components/SelectBox/SelectBox';
+import { Button, Icon, Gnb, TextArea, SelectBox } from '@components/index';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -58,6 +57,7 @@ export default function Home() {
           ]}
           defaultOption="Select Chain"
         ></SelectBox>
+        <TextArea btn="Generate" placeholder="Cast your spell 🪄"></TextArea>
       </main>
     </>
   );

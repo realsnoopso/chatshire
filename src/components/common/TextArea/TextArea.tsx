@@ -1,6 +1,6 @@
 import { useState, forwardRef } from 'react';
 import { styleRoot } from './TextAreaStyle';
-import { Button, Icon } from '@components/index';
+import { Button, Icon } from '@common';
 
 interface TextInput {
   placeholder: string;

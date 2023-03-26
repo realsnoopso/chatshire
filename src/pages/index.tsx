@@ -1,19 +1,11 @@
 import Head from 'next/head';
 
-import {
-  Button,
-  Icon,
-  Gnb,
-  TextArea,
-  SelectBox,
-  Card,
-} from '@components/index';
 import { Home } from '@/components/pages/index';
 
 import * as historyModule from '@mocks/history.json';
 import * as promptExampleModule from '@mocks/promptExample.json';
-import * as Types from '@src/types/index';
-import { Default } from '@layouts/index';
+import * as Types from '@types';
+import { Default } from '@layouts';
 
 export default function HomePage() {
   const history: Types.History[] = JSON.parse(

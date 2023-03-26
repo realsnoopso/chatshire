@@ -1,13 +1,6 @@
 import Head from 'next/head';
 
-import {
-  Button,
-  Icon,
-  Gnb,
-  TextArea,
-  SelectBox,
-  Card,
-} from '@components/index';
+import { Button, Icon, Gnb, TextArea, SelectBox, Card } from '@common';
 import { ConnectWallet } from '@services/connectWallet';
 
 export default function Home() {

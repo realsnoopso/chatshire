@@ -1,6 +1,6 @@
 import React from 'react';
 import { styleRoot } from './CardStyle';
-import { Icon } from '@components/index';
+import { Icon } from '@common';
 import { IconType } from '@components/Icon/Icon';
 
 interface Card {

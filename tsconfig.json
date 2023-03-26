@@ -19,13 +19,14 @@
       "@/*": ["./src/*"],
       "@src/*": ["./src/*"],
       "@styles/*": ["./src/styles/*"],
-      "@components/*": ["./src/components/*"],
+      "@components/*": ["./src/components/common/*"],
+      "@common": ["./src/components/common/index.tsx"],
+      "@pages": ["./src/components/pages/index.tsx"],
+      "@layouts": ["./src/components/layouts/index.tsx"],
       "@services/*": ["./src/services/*"],
-      "@pages/*": ["./src/components/pages/*"],
       "@assets/*": ["./src/assets/*"],
       "@mocks/*": ["./src/mocks/*"],
-      "@types/*": ["./src/types/*"],
-      "@layouts/*": ["./src/components/layouts/*"]
+      "@types": ["./src/types/index.tsx"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/assets/index.js"],

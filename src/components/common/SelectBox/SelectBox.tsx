@@ -1,14 +1,16 @@
 import { useState, forwardRef } from 'react';
 import { styleRoot } from './SelectBoxStyle';
 import { Icon } from '@components/index';
+import { IconType } from '@types';
 
 interface SelectBox {
   options: string[];
   defaultOption?: string;
+  defaultIcon?: IconType;
 }
 
 const SelectBox = forwardRef((props: SelectBox, ref: any) => {
-  const { options, defaultOption } = props;
+  const { options, defaultOption, defaultIcon } = props;
 
   const [isOpen, setIsOpen] = useState(false);
   const [selectedData, setSelectedData] = useState(null);
@@ -35,7 +37,7 @@ const SelectBox = forwardRef((props: SelectBox, ref: any) => {
       <button className="select-btn" onClick={clickSelectBtn}>
         {selectedData ?? (
           <div className="select-btn-value">
-            <Icon name="emptyImg1"></Icon>
+            <Icon name={defaultIcon ?? 'emptyImg1'}></Icon>
             {defaultOption}
           </div>
         )}

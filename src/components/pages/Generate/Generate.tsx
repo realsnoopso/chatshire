@@ -48,8 +48,8 @@ export default function Generate() {
       <section>
         <h3 className="section-title">Result</h3>
         <TextInput
-          btn="Generate"
-          placeholder="Enter a query"
+          btn="Copy"
+          placeholder="Transaction hash"
           _onClick={() => {}}
         ></TextInput>
       </section>

@@ -26,10 +26,12 @@ const PromptBox = forwardRef((props: PromptBox, ref: any) => {
         <SelectBox
           options={['test', 'test2', 'test2', 'test2', 'test2']}
           defaultOption="Select Chain"
+          defaultIcon="emptyImg1"
         ></SelectBox>
         <SelectBox
           options={['test', 'test2', 'test2', 'test2', 'test2']}
           defaultOption="Select Item"
+          defaultIcon="emptyImg2"
         ></SelectBox>
         <TextArea
           btn="Generate"

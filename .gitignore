@@ -59,3 +59,17 @@ yarn-error.log*
 next-env.d.ts
 
 # End of https://www.toptal.com/developers/gitignore/api/nextjs
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# build output
+/.next
+
+# cache files
+/.next/cache
+/.next/server/pages
+/.next/server/chunks
+/.next/server/buildId

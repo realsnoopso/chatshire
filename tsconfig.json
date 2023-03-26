@@ -18,7 +18,12 @@
     "paths": {
       "@/*": ["./src/*"],
       "@src/*": ["./src/*"],
-      "@components/*": ["./src/components/*"]
+      "@styles/*": ["./src/styles/*"],
+      "@components/*": ["./src/components/*"],
+      "@services/*": ["./src/services/*"],
+      "@pages/*": ["./src/pages/*"],
+      "@assets/*": ["./src/assets/*"],
+      "@mocks/*": ["./src/mocks/*"],
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/assets/index.js"],

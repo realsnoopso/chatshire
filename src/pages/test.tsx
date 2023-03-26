@@ -9,17 +9,11 @@ import {
   Card,
 } from '@components/index';
 import { getStyleRoot } from './indexStyle';
-import { ConnectWallet } from '@services/connectWallet';
-import * as historyModule from '@mocks/history.json';
-
-
+import {ConnectWallet} from '@services/connectWallet';
 
 export default function Home() {
 
   const styleRoot = getStyleRoot();
-
-  const history = JSON.parse(JSON.stringify(historyModule));
-console.log(history);
   return (
     <>
       <Head>
@@ -47,18 +41,29 @@ console.log(history);
             'test2',
             'test2',
             'test2',
+            'test2',
+            'test2',
+            'test2',
+            'test2',
+            'test2',
+            'test2',
+            'test2',
+            'test2',
+            'test2',
+            'test2',
+            'test2',
+            'test2',
+            'test2',
+            'test2',
+            'test2',
+            'test2',
+            'test2',
+            'test2',
+            'test2',
+            'test2',
+            'test2',
           ]}
           defaultOption="Select Chain"
-        ></SelectBox>
-        <SelectBox
-          options={[
-            'test',
-            'test2',
-            'test2',
-            'test2',
-            'test2',
-          ]}
-          defaultOption="Select Item"
         ></SelectBox>
         <TextArea
           btn="Generate"

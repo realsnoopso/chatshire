@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import { Button, Icon } from '@components/index';
 import { styleRoot } from './GnbStyle';
 import { useRouter } from 'next/router';
-import { ConnectWallet } from '@/services/connectWallet';
+import { ConnectWallet } from '@services/connectWallet';
 
 interface Gnb {
   _onClick: () => void;

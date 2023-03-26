@@ -1,6 +1,6 @@
 import { css } from '@emotion/css';
 
-export function getStyleRoot() {
+export default function getStyleRoot() {
   return css`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

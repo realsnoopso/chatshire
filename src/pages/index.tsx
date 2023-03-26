@@ -8,7 +8,7 @@ import {
   SelectBox,
   Card,
 } from '@components/index';
-import { getStyleRoot } from './indexStyle';
+import getStyleRoot from './indexStyle';
 import { ConnectWallet } from '@services/connectWallet';
 import * as historyModule from '@mocks/history.json';
 import * as promptExampleModule from '@mocks/promptExample.json';

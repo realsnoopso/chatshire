@@ -8,11 +8,10 @@ import {
   SelectBox,
   Card,
 } from '@components/index';
-import { getStyleRoot } from './indexStyle';
-import {ConnectWallet} from '@services/connectWallet';
+import getStyleRoot from './indexStyle';
+import { ConnectWallet } from '@services/connectWallet';
 
 export default function Home() {
-
   const styleRoot = getStyleRoot();
   return (
     <>

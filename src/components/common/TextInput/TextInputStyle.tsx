@@ -11,7 +11,7 @@ export const styleRoot = css`
     border: 1px solid var(--primary-700);
   }
 
-  textarea {
+  input {
     width: calc(100% - 16px - 16px);
     padding: 12px 16px;
     color: var(--white);
@@ -19,7 +19,6 @@ export const styleRoot = css`
     background-color: transparent;
     outline: none;
     border: none;
-    height: 83px;
 
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -31,11 +30,11 @@ export const styleRoot = css`
     letter-spacing: 0.01em;
   }
 
-  textarea::placeholder {
+  input::placeholder {
     color: var(--gray-500);
   }
 
-  textarea:focus {
+  input:focus {
     outline: none;
     border: none;
   }

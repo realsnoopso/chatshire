@@ -1,11 +1,13 @@
-import { TextArea, SelectBox, Card } from '@components/index';
+import { TextArea, SelectBox, Card, PromptBox } from '@components/index';
 import getStyleRoot from './homeStyle';
 
 import * as historyModule from '@mocks/history.json';
 import * as promptExampleModule from '@mocks/promptExample.json';
 import * as Types from '@src/types/index';
+import { useRouter } from 'next/router';
 
 export default function Home() {
+  const router = useRouter();
   const styleRoot = getStyleRoot();
   const history: Types.History[] = JSON.parse(
     JSON.stringify(historyModule)
@@ -17,21 +19,7 @@ export default function Home() {
   return (
     <>
       <div className={styleRoot}>
-        <section className="form">
-          <SelectBox
-            options={['test', 'test2', 'test2', 'test2', 'test2']}
-            defaultOption="Select Chain"
-          ></SelectBox>
-          <SelectBox
-            options={['test', 'test2', 'test2', 'test2', 'test2']}
-            defaultOption="Select Item"
-          ></SelectBox>
-          <TextArea
-            btn="Generate"
-            placeholder="Cast your spell 🪄"
-            _onClick={() => {}}
-          ></TextArea>
-        </section>
+        <PromptBox></PromptBox>
         <section>
           <h3 className="section-title">History</h3>
           <div className="card-container">

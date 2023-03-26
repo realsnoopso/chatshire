@@ -1,5 +1,7 @@
 import React from 'react';
 import { styleRoot } from './ButtonStyle';
+import { Icon } from '@common';
+import { IconType } from '@types';
 
 interface Button {
   children: React.ReactNode;
@@ -7,11 +9,14 @@ interface Button {
   _onClick?: () => void;
   size?: 'large' | 'small';
   loading?: boolean;
-  icon?: boolean;
+  icon?: IconType;
+  color?: string;
 }
 
 const Button = React.forwardRef((props: Button, ref: any) => {
-  const { children, _onClick, size, loading, icon, style } = props;
+  const { children, _onClick, size, loading, icon, style, color } = props;
+
+  const colorStyle = color ? { color: color } : {};
 
   return (
     <button
@@ -20,9 +25,10 @@ const Button = React.forwardRef((props: Button, ref: any) => {
         styleRoot +
         ` ${style} ${size} ${loading ? 'loading' : ''} ${icon ? 'icon' : ''}`
       }
+      style={colorStyle}
       onClick={_onClick}
     >
-      {icon}
+      {icon && <Icon name={icon} fill={color}></Icon>}
       {children}
     </button>
   );

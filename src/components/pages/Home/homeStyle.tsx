@@ -11,11 +11,6 @@ export default function getStyleRoot() {
       margin-top: 48px;
     }
 
-    .section-title {
-      margin-left: 16px;
-      margin-bottom: 20px;
-    }
-
     .card-container {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;

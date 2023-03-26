@@ -1,7 +1,7 @@
 import React from 'react';
 import { styleRoot } from './CardStyle';
 import { Icon } from '@common';
-import { IconType } from '@components/Icon/Icon';
+import { IconType } from '@types';
 
 interface Card {
   children: React.ReactNode;

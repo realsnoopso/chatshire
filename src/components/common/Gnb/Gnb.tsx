@@ -6,10 +6,11 @@ import { ConnectWallet } from '@services/connectWallet';
 
 interface Gnb {
   _onClick: () => void;
+  hasBackBtn?: boolean;
 }
 
 const Gnb = React.forwardRef((props: Gnb) => {
-  const { _onClick } = props;
+  const { _onClick, hasBackBtn } = props;
   const router = useRouter();
   const [account, setAccount] = useState('');
 
@@ -24,7 +25,17 @@ const Gnb = React.forwardRef((props: Gnb) => {
 
   return (
     <div className={styleRoot}>
-      <Icon name="logo" _onClick={clickLogo}></Icon>
+      {hasBackBtn ? (
+        <Icon
+          name="arrow_left"
+          fill="var(--gray-500)"
+          size={28}
+          _onClick={clickLogo}
+        ></Icon>
+      ) : (
+        <Icon name="logo" _onClick={clickLogo}></Icon>
+      )}
+
       {account !== '' ? (
         <div style={{ color: 'white' }}>{account}</div>
       ) : (

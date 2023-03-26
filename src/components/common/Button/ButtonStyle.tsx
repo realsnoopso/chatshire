@@ -35,6 +35,13 @@ export const styleRoot = css`
   &.small {
     padding: 4px;
     background: none;
+    margin-left: -8px;
+
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 16px;
+
+    letter-spacing: 0.01em;
   }
 
   &.loading {

@@ -5,14 +5,15 @@ import { ConnectWallet } from '@services/connectWallet';
 
 interface Deafult {
   children: React.ReactNode;
+  hasBackBtn?: boolean;
 }
 
 const Default = React.forwardRef((props: Deafult, ref: any) => {
-  const { children } = props;
+  const { children, hasBackBtn } = props;
 
   return (
     <>
-      <Gnb _onClick={ConnectWallet}></Gnb>
+      <Gnb hasBackBtn={hasBackBtn} _onClick={ConnectWallet}></Gnb>
       <div className={styleRoot}>{children}</div>
     </>
   );

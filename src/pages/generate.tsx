@@ -4,7 +4,7 @@ import { Generate } from '@pages';
 
 const GeneratePage: NextPage = () => {
   return (
-    <Default>
+    <Default hasBackBtn={true}>
       <Generate />
     </Default>
   );

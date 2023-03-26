@@ -2,7 +2,7 @@ import { css } from '@emotion/css';
 export const styleRoot = css`
   max-width: 640px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: var(--size-gnb) 20px;
 
   .form {
     display: grid;
@@ -11,11 +11,6 @@ export const styleRoot = css`
 
   section:not(:first-of-type) {
     margin-top: 48px;
-  }
-
-  .section-title {
-    margin-left: 16px;
-    margin-bottom: 20px;
   }
 
   .card-container {

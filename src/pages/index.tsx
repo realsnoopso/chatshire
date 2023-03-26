@@ -9,8 +9,10 @@ import {
   Card,
 } from '@components/index';
 import { getStyleRoot } from './indexStyle';
+import {ConnectWallet} from '@/services/connectWallet';
 
 export default function Home() {
+
   const styleRoot = getStyleRoot();
   return (
     <>
@@ -20,7 +22,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Gnb></Gnb>
+      <Gnb _onClick={ConnectWallet}></Gnb>
       <main className={styleRoot}>
         <Button size="large">Generate</Button>
         <Button size="large" loading>

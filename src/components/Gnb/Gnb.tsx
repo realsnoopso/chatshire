@@ -1,13 +1,23 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Button, Icon } from '@components/index';
 import { styleRoot } from './GnbStyle';
 import { useRouter } from 'next/router';
+import { ConnectWallet } from '@/services/connectWallet';
 
-interface Gnb {}
+interface Gnb {
+  _onClick: () => void;
+}
+
 
 const Gnb = React.forwardRef((props: Gnb) => {
-  const {} = props;
+  const {_onClick} = props;
   const router = useRouter();
+  const [account, setAccount] = useState("")
+
+  async function handleClick() {
+    const address = await ConnectWallet()
+    setAccount(address)
+  }
 
   function clickLogo() {
     router.push('/');
@@ -16,7 +26,7 @@ const Gnb = React.forwardRef((props: Gnb) => {
   return (
     <div className={styleRoot}>
       <Icon name="logo" _onClick={clickLogo}></Icon>
-      <Button _onClick={clickLogo}>Connect Wallet</Button>
+      {account!== ""? <div style={{color: "white"}}>{account}</div> : <Button _onClick={handleClick}>Connect Wallet</Button>}
     </div>
   );
 });

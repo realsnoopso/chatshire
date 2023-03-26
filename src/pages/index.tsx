@@ -11,15 +11,19 @@ import {
 import { getStyleRoot } from './indexStyle';
 import { ConnectWallet } from '@services/connectWallet';
 import * as historyModule from '@mocks/history.json';
-
-
+import * as promptExampleModule from '@mocks/promptExample.json';
+import * as Types from '@src/types/index';
 
 export default function Home() {
-
   const styleRoot = getStyleRoot();
 
-  const history = JSON.parse(JSON.stringify(historyModule));
-console.log(history);
+  const history: Types.History[] = JSON.parse(
+    JSON.stringify(historyModule)
+  ).data;
+  const promptExample: Types.PromptExample[] = JSON.parse(
+    JSON.stringify(promptExampleModule)
+  ).data;
+
   return (
     <>
       <Head>
@@ -30,54 +34,51 @@ console.log(history);
       </Head>
       <Gnb _onClick={ConnectWallet}></Gnb>
       <main className={styleRoot}>
-        <Button size="large">Generate</Button>
-        <Button size="large" loading>
-          Loading...
-        </Button>
-        <Button>Connect Wallet</Button>
-        <Button size="small">Show Edit</Button>
-        <Button size="small">Hide Edit</Button>
-        <Icon name="copy" size={56}></Icon>
-        <Icon name="chevron_down" size={56}></Icon>
-        <Icon name="chevron_up" size={56}></Icon>
-        <SelectBox
-          options={[
-            'test',
-            'test2',
-            'test2',
-            'test2',
-            'test2',
-          ]}
-          defaultOption="Select Chain"
-        ></SelectBox>
-        <SelectBox
-          options={[
-            'test',
-            'test2',
-            'test2',
-            'test2',
-            'test2',
-          ]}
-          defaultOption="Select Item"
-        ></SelectBox>
-        <TextArea
-          btn="Generate"
-          placeholder="Cast your spell 🪄"
-          _onClick={() => {}}
-        ></TextArea>
-        <div className="card-container">
-          <Card
-            firstTag="Ethereum"
-            secondTag="Maker DAO"
-            icon="copy"
+        <section className="form">
+          <SelectBox
+            options={['test', 'test2', 'test2', 'test2', 'test2']}
+            defaultOption="Select Chain"
+          ></SelectBox>
+          <SelectBox
+            options={['test', 'test2', 'test2', 'test2', 'test2']}
+            defaultOption="Select Item"
+          ></SelectBox>
+          <TextArea
+            btn="Generate"
+            placeholder="Cast your spell 🪄"
             _onClick={() => {}}
-          >
-            Give me the transaction hash with the largest amountGive me the
-            transaction hash with the largest amount
-          </Card>
-          <Card icon="copy">dasfsdafd</Card>
-          <Card icon="copy">dasfsdafd</Card>
-        </div>
+          ></TextArea>
+        </section>
+        <section>
+          <h3 className="section-title">History</h3>
+          <div className="card-container">
+            {history.map((v, i) => {
+              return (
+                <Card
+                  key={i}
+                  firstTag={v.chain}
+                  secondTag={v.item}
+                  icon="copy"
+                  _onClick={() => {}}
+                >
+                  {v.prompt}
+                </Card>
+              );
+            })}
+          </div>
+        </section>
+        <section>
+          <h3 className="section-title">Prompt Example</h3>
+          <div className="card-container">
+            {promptExample.map((v, i) => {
+              return (
+                <Card key={i} icon="copy" _onClick={() => {}}>
+                  {v}
+                </Card>
+              );
+            })}
+          </div>
+        </section>
       </main>
     </>
   );

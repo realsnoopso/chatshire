@@ -1,17 +1,19 @@
-[
-  {
-    "chain": "Ethereum",
-    "item": "Maker DAO",
-    "prompt": "Give me the transaction hash with the largest amount"
-  },
-  {
-    "chain": "Ethereum",
-    "item": "Maker DAO",
-    "prompt": "Give me the transaction hash with the largest amount"
-  },
-  {
-    "chain": "Ethereum",
-    "item": "Maker DAO",
-    "prompt": "Give me the transaction hash with the largest amount"
-  }
-]
+{
+  "data": [
+    {
+      "chain": "Ethereum",
+      "item": "Maker DAO",
+      "prompt": "Give me the transaction hash with the largest amount"
+    },
+    {
+      "chain": "Ethereum",
+      "item": "Maker DAO",
+      "prompt": "Give me the transaction hash with the largest amount"
+    },
+    {
+      "chain": "Ethereum",
+      "item": "Maker DAO",
+      "prompt": "Give me the transaction hash with the largest amount"
+    }
+  ]
+}

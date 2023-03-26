@@ -15,28 +15,21 @@ interface Card {
 }
 
 const Card = React.forwardRef((props: Card, ref: any) => {
-  const {
-    children,
-    _onClick,
-    size,
-    loading,
-    icon,
-    style,
-    firstTag,
-    secondTag,
-  } = props;
+  const { children, _onClick, icon, firstTag, secondTag } = props;
 
   return (
-    <div ref={ref} className={styleRoot}>
-      <div className="label-container">
-        {firstTag && <span className="firstTag">{firstTag}</span>}
-        {secondTag && <span className="secondTag">{secondTag}</span>}
+    <>
+      <div ref={ref} className={styleRoot}>
+        <div className="label-container">
+          {firstTag && <span className="firstTag">{firstTag}</span>}
+          {secondTag && <span className="secondTag">{secondTag}</span>}
+        </div>
+        <p className="content">{children}</p>
+        <div className="icon-btn-container">
+          {icon && <Icon name={icon} _onClick={_onClick}></Icon>}
+        </div>
       </div>
-      <p className="content">{children}</p>
-      <div className="icon-btn-container">
-        {icon && <Icon name={icon} _onClick={_onClick}></Icon>}
-      </div>
-    </div>
+    </>
   );
 });
 

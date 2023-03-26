@@ -30,4 +30,13 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-family: 'Inter', sans-serif;
   background-color: var(--black);
+  color: var(--white);
+}
+
+.section-title {
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 18px;
+  letter-spacing: 0.01em;
+  color: var(--gray-500);
 }

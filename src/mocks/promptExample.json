@@ -1,5 +1,7 @@
-[
-  "Give me the transaction hash with the largest amount",
-  "Give me the transaction hash with the largest amount",
-  "Give me the transaction hash with the largest amount"
-]
+{
+  "data": [
+    "Give me the transaction hash with the largest amount",
+    "Give me the transaction hash with the largest amount",
+    "Give me the transaction hash with the largest amount"
+  ]
+}

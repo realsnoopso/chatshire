@@ -49,10 +49,11 @@ export const styleRoot = css`
     border: 1px solid var(--gray-800);
     filter: drop-shadow(0px 10px 30px rgba(0, 0, 0, 0.5));
     overflow-y: scroll;
-    height: 210px;
+    max-height: 210px;
     position: absolute;
     width: 100%;
     top: calc(52px + 4px);
+    z-index: 1;
 
     font-weight: 500;
     font-size: 16px;

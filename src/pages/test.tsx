@@ -8,12 +8,9 @@ import {
   SelectBox,
   Card,
 } from '@components/index';
-import { getStyleRoot } from './indexStyle';
-import {ConnectWallet} from '@services/connectWallet';
+import { ConnectWallet } from '@services/connectWallet';
 
 export default function Home() {
-
-  const styleRoot = getStyleRoot();
   return (
     <>
       <Head>
@@ -23,7 +20,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Gnb _onClick={ConnectWallet}></Gnb>
-      <main className={styleRoot}>
+      <main>
         <Button size="large">Generate</Button>
         <Button size="large" loading>
           Loading...

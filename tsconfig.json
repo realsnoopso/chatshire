@@ -21,10 +21,11 @@
       "@styles/*": ["./src/styles/*"],
       "@components/*": ["./src/components/*"],
       "@services/*": ["./src/services/*"],
-      "@pages/*": ["./src/pages/*"],
+      "@pages/*": ["./src/components/pages/*"],
       "@assets/*": ["./src/assets/*"],
       "@mocks/*": ["./src/mocks/*"],
-      "@types/*": ["./src/types/*"]
+      "@types/*": ["./src/types/*"],
+      "@layouts/*": ["./src/components/layouts/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/assets/index.js"],

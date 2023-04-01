@@ -3,7 +3,6 @@ export const styleRoot = css`
   padding: 16px;
   background-color: var(--gray-900);
   border-radius: 12px;
-  border: 1px solid var(--gray-800);
   color: var(--white);
   flex-grow: 1;
   width: 100%;

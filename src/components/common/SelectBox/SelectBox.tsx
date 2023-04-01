@@ -7,10 +7,11 @@ interface SelectBox {
   options: string[];
   defaultOption?: string;
   defaultIcon?: IconType;
+  index: number;
 }
 
 const SelectBox = forwardRef((props: SelectBox, ref: any) => {
-  const { options, defaultOption, defaultIcon } = props;
+  const { options, defaultOption, defaultIcon, index } = props;
 
   const [isOpen, setIsOpen] = useState(false);
   const [selectedData, setSelectedData] = useState(null);
@@ -33,7 +34,7 @@ const SelectBox = forwardRef((props: SelectBox, ref: any) => {
   }
 
   return (
-    <div className={styleRoot} tabIndex={0} onBlur={handleBlur}>
+    <div className={styleRoot} tabIndex={index} onBlur={handleBlur}>
       <button className="select-btn" onClick={clickSelectBtn}>
         {selectedData ?? (
           <div className="select-btn-value">
@@ -43,7 +44,7 @@ const SelectBox = forwardRef((props: SelectBox, ref: any) => {
         )}
         <Icon
           name={isOpen ? 'chevron_up' : 'chevron_down'}
-          size={20}
+          size={24}
           fill="var(--gray-700)"
         ></Icon>
       </button>

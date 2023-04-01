@@ -24,11 +24,13 @@ const PromptBox = forwardRef((props: PromptBox, ref: any) => {
         style={style ?? undefined}
       >
         <SelectBox
+          index={1}
           options={['test', 'test2', 'test2', 'test2', 'test2']}
           defaultOption="Select Chain"
           defaultIcon="emptyImg1"
         ></SelectBox>
         <SelectBox
+          index={2}
           options={['test', 'test2', 'test2', 'test2', 'test2']}
           defaultOption="Select Item"
           defaultIcon="emptyImg2"

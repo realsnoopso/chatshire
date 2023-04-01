@@ -15,3 +15,9 @@
 - [ ] Loading
 
 2. 페이지 제작
+
+3. Langchain.JS 도입
+
+4. Database & Long-term Memory Service 연결
+
+5. (potentially) fine-tuning Service 연동

@@ -17,7 +17,14 @@ export const styleRoot = css`
   letter-spacing: 0.01em;
 
   &:hover {
+    box-shadow: none;
+    transform: scale(1.1);
+  }
+
+  &:hover {
     cursor: pointer;
+    transition: all 0.1s var(--timing-function);
+    transform: scale(1.1);
   }
 
   &.large {
@@ -30,6 +37,14 @@ export const styleRoot = css`
         rgba(0, 0, 0, 0) 100%
       ),
       #624cd2;
+
+    &:hover {
+      cursor: pointer;
+      text-shadow: var(--gray-600) 0px 3px 12px;
+      box-shadow: rgba(54, 29, 150, 0.5) 0px 1px 40px;
+      transition: all 0.1s var(--timing-function);
+      transform: scale(1.1);
+    }
   }
 
   &.small {
@@ -42,9 +57,19 @@ export const styleRoot = css`
     line-height: 16px;
 
     letter-spacing: 0.01em;
+
+    &:hover {
+      box-shadow: none;
+      transform: scale(1.1);
+    }
   }
 
   &.loading {
     background: linear-gradient(0deg, var(--gray-700), var(--gray-700)), #624cd2;
+  }
+
+  &.no-animation:hover {
+    transition: none;
+    transform: none;
   }
 `;

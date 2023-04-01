@@ -11,10 +11,12 @@ interface Button {
   loading?: boolean;
   icon?: IconType;
   color?: string;
+  noAmimation?: boolean;
 }
 
 const Button = React.forwardRef((props: Button, ref: any) => {
-  const { children, _onClick, size, loading, icon, style, color } = props;
+  const { children, _onClick, size, loading, icon, style, color, noAmimation } =
+    props;
 
   const colorStyle = color ? { color: color } : {};
 
@@ -23,7 +25,9 @@ const Button = React.forwardRef((props: Button, ref: any) => {
       ref={ref}
       className={
         styleRoot +
-        ` ${style} ${size} ${loading ? 'loading' : ''} ${icon ? 'icon' : ''}`
+        ` ${style ?? ''} ${size} ${loading ? 'loading' : ''} ${
+          icon ? 'icon' : ''
+        } ${noAmimation ? 'no-animation' : ''}`
       }
       style={colorStyle}
       onClick={_onClick}

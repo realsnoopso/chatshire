@@ -13,10 +13,6 @@ const PromptBox = forwardRef((props: PromptBox, ref: any) => {
   const { _onClick, isHidden, style } = props;
   const router = useRouter();
 
-  useEffect(() => {
-    console.log(isHidden);
-  }, [isHidden]);
-
   return (
     <>
       <section
@@ -27,13 +23,13 @@ const PromptBox = forwardRef((props: PromptBox, ref: any) => {
           index={1}
           options={['test', 'test2', 'test2', 'test2', 'test2']}
           defaultOption="Select Chain"
-          defaultIcon="emptyImg1"
+          defaultImg="defaultEmptyImg"
         ></SelectBox>
         <SelectBox
           index={2}
           options={['test', 'test2', 'test2', 'test2', 'test2']}
           defaultOption="Select Item"
-          defaultIcon="emptyImg2"
+          defaultImg="secondEmptyImg"
         ></SelectBox>
         <TextArea
           btn="Generate"

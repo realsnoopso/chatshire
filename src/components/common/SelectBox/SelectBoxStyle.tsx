@@ -53,7 +53,10 @@ export const styleRoot = css`
     position: absolute;
     width: 100%;
     top: calc(52px + 4px);
+    transition: all 0.3s var(--timing-function);
     z-index: var(--zindex-selectbox-dropdown);
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 1px 40px;
+    transform: translateY(-2px);
 
     font-weight: 500;
     font-size: 16px;

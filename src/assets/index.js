@@ -4,6 +4,6 @@ export { default as chevron_down } from './icons/chevron_down_small.svg';
 export { default as arrow_left } from './icons/arrow_left.svg';
 
 export { default as logo } from './images/logo.svg';
-export { default as emptyImg1 } from './images/emptyImg1.svg';
-export { default as emptyImg2 } from './images/emptyImg2.svg';
-export { default as emptyImg3 } from './images/emptyImg3.svg';
+export { default as defaultEmptyImg } from './images/defaultEmptyImg.png';
+export { default as secondEmptyImg } from './images/secondEmptyImg.png';
+export { default as thirdEmptyImg } from './images/thirdEmptyImg.png';

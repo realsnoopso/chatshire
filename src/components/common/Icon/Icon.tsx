@@ -33,8 +33,9 @@ function changeSVGSize(
 }
 
 const Icon = forwardRef((props: IconTypes) => {
-  const { name, _onClick, fill, size, width, height } = props;
+  const { name, _onClick, fill, size, width, height, isImg } = props;
   const url = assets[name].src;
+
   const [svgContent, setSvgContent] = useState<string | null>(null);
 
   useEffect(() => {
@@ -53,8 +54,18 @@ const Icon = forwardRef((props: IconTypes) => {
   }, [url]);
 
   const isOnClick = _onClick ? true : false;
-
   const styleRoot = getStyleRoot(isOnClick);
+
+  if (isImg) {
+    return (
+      <img
+        src={url}
+        alt={name}
+        width={width ?? size + 'px'}
+        height={height ?? size + 'px'}
+      ></img>
+    );
+  }
 
   return (
     <div

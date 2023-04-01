@@ -1,6 +1,6 @@
 import { css } from '@emotion/css';
 
-export const promptStyle = { marginTop: '24px', marginBottom: '32px' };
+export const promptStyle = { marginTop: '8px', marginBottom: '16px' };
 
 export default function getStyleRoot() {
   return css`

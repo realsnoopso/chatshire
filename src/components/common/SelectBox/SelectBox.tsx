@@ -7,11 +7,12 @@ interface SelectBox {
   options: string[];
   defaultOption?: string;
   defaultIcon?: IconType;
+  defaultImg?: IconType;
   index: number;
 }
 
 const SelectBox = forwardRef((props: SelectBox, ref: any) => {
-  const { options, defaultOption, defaultIcon, index } = props;
+  const { options, defaultOption, defaultIcon, defaultImg, index } = props;
 
   const [isOpen, setIsOpen] = useState(false);
   const [selectedData, setSelectedData] = useState(null);
@@ -38,7 +39,8 @@ const SelectBox = forwardRef((props: SelectBox, ref: any) => {
       <button className="select-btn" onClick={clickSelectBtn}>
         {selectedData ?? (
           <div className="select-btn-value">
-            <Icon name={defaultIcon ?? 'emptyImg1'}></Icon>
+            {defaultIcon && <Icon name={defaultIcon}></Icon>}
+            {defaultImg && <Icon name={defaultImg} isImg size={16}></Icon>}
             {defaultOption}
           </div>
         )}

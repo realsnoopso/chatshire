@@ -20,10 +20,13 @@ const Card = React.forwardRef((props: Card, ref: any) => {
   return (
     <>
       <div ref={ref} className={styleRoot}>
-        <div className="label-container">
-          {firstTag && <span className="firstTag">{firstTag}</span>}
-          {secondTag && <span className="secondTag">{secondTag}</span>}
-        </div>
+        {firstTag && secondTag && (
+          <div className="tag-container">
+            {firstTag && <span className="firstTag">{firstTag}</span>}
+            {secondTag && <span className="secondTag">{secondTag}</span>}
+          </div>
+        )}
+
         <p className="content">{children}</p>
         <div className="icon-btn-container">
           {icon && <Icon name={icon} _onClick={_onClick}></Icon>}

@@ -10,13 +10,21 @@ export const styleRoot = css`
   height: 194px;
   flex-direction: column;
 
-  .label-container {
+  &:hover {
+    cursor: pointer;
+    transition: all 0.1s ease-in;
+    background-color: var(--gray-800);
+    box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
+  }
+
+  .tag-container {
     display: flex;
     flex-direction: column;
     gap: 6px;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
 
-    color: var(--gray-300);
+    color: var(--gray-400);
     font-weight: 600;
     font-size: 13px;
     line-height: 16px;
@@ -27,7 +35,7 @@ export const styleRoot = css`
     margin-bottom: 12px;
     height: 100%;
     font-weight: 400;
-    font-size: 14px;
+    font-size: 15px;
     line-height: 140%;
   }
 

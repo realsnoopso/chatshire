@@ -10,6 +10,7 @@ export interface Icon {
   width?: number;
   height?: number;
   style?: React.CSSProperties;
+  isImg?: boolean;
 }
 
 export interface History {

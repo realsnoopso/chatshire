@@ -28,6 +28,8 @@
   --zindex-gnb: 1000;
 
   --size-gnb: 81px;
+
+  --timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
 body {
@@ -53,5 +55,5 @@ body {
   color: var(--gray-500);
 
   margin-left: 4px;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }

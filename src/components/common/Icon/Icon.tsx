@@ -1,18 +1,7 @@
 import { forwardRef, useEffect, useState } from 'react';
+import { Icon as IconTypes } from '@types';
 import * as assets from '@src/assets/index.js';
 import { getStyleRoot } from './IconStyle';
-
-export type IconType = keyof typeof assets;
-
-interface Icon {
-  name: IconType;
-  _onClick?: () => void;
-  fill?: string;
-  size?: number;
-  width?: number;
-  height?: number;
-  style?: React.CSSProperties;
-}
 
 async function loadSVGFile(url: string) {
   try {
@@ -43,7 +32,7 @@ function changeSVGSize(
   return newString;
 }
 
-const Icon = forwardRef((props: Icon) => {
+const Icon = forwardRef((props: IconTypes) => {
   const { name, _onClick, fill, size, width, height } = props;
   const url = assets[name].src;
   const [svgContent, setSvgContent] = useState<string | null>(null);

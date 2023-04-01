@@ -1,14 +1,14 @@
 import { useState, forwardRef } from 'react';
 import { styleRoot } from './TextAreaStyle';
-import { Button, Icon } from '@components/index';
+import { Button, Icon } from '@common';
 
-interface TextInput {
+interface TextArea {
   placeholder: string;
   btn: string;
   _onClick: () => void;
 }
 
-const TextInput = forwardRef((props: TextInput, ref: any) => {
+const TextArea = forwardRef((props: TextArea, ref: any) => {
   const { placeholder, btn, _onClick } = props;
   const [value, setValue] = useState('');
 
@@ -33,4 +33,4 @@ const TextInput = forwardRef((props: TextInput, ref: any) => {
   );
 });
 
-export default TextInput;
+export default TextArea;

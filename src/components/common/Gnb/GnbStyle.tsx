@@ -4,6 +4,11 @@ export const styleRoot = css`
   justify-content: space-between;
   align-items: center;
 
-  height: 81px;
+  height: var(--size-gnb);
   padding: 0 32px;
+
+  position: fixed;
+  width: 100%;
+
+  z-index: var(--zindex-gnb);
 `;

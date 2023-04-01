@@ -53,7 +53,7 @@ export const styleRoot = css`
     position: absolute;
     width: 100%;
     top: calc(52px + 4px);
-    z-index: 1;
+    z-index: var(--zindex-selectbox-dropdown);
 
     font-weight: 500;
     font-size: 16px;

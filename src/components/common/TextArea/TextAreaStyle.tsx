@@ -12,8 +12,8 @@ export const styleRoot = css`
   }
 
   textarea {
-    width: calc(100% - 20px - 20px);
-    padding: 16px 20px;
+    width: calc(100% - 16px - 16px);
+    padding: 12px 16px;
     color: var(--white);
     border: none;
     background-color: transparent;

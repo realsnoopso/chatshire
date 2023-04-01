@@ -68,6 +68,14 @@ next-env.d.ts
 /.pnp
 .pnp.js
 
+# build output
+/.next
+
+# cache files
+/.next/cache
+/.next/server/pages
+/.next/server/chunks
+/.next/server/buildId
 # testing
 /coverage
 

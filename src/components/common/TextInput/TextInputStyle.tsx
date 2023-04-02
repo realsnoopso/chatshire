@@ -3,26 +3,23 @@ export const styleRoot = css`
   background-color: var(--gray-900);
   border-radius: 12px;
   border: 1px solid var(--gray-800);
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
+  display: grid;
+  align-items: center;
+  grid-template-columns: auto max-content;
+  padding: 12px 16px;
 
   &:focus-within {
     border: 1px solid var(--primary-700);
   }
 
   input {
-    width: calc(100% - 16px - 16px);
-    padding: 12px 16px;
     color: var(--white);
     border: none;
     background-color: transparent;
     outline: none;
     border: none;
-
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    font-family: 'Inter', sans-serif;
+    flex-grow: 1;
+    padding: 0;
 
     font-weight: 500;
     font-size: 16px;
@@ -40,6 +37,6 @@ export const styleRoot = css`
   }
 
   button {
-    margin: 0 12px 16px 12px;
+    flex-grow: 1;
   }
 `;

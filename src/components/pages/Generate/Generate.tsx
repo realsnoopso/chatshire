@@ -41,16 +41,18 @@ export default function Generate() {
         <h3 className="section-title">Query</h3>
         <TextArea
           btn="Show me a result"
-          placeholder="Enter a query"
           _onClick={() => {}}
+          placeholder="Enter a query"
         ></TextArea>
       </section>
       <section>
         <h3 className="section-title">Result</h3>
         <TextInput
           btn="Copy"
-          placeholder="Transaction hash"
           _onClick={() => {}}
+          placeholder="Transaction hash"
+          defaultValue="0x1234567890"
+          isReadOnly
         ></TextInput>
       </section>
     </div>

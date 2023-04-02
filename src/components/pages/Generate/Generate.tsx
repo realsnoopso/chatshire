@@ -40,7 +40,7 @@ export default function Generate() {
       <section>
         <h3 className="section-title">Query</h3>
         <TextArea
-          btn="Generate"
+          btn="Show me a result"
           placeholder="Enter a query"
           _onClick={() => {}}
         ></TextArea>

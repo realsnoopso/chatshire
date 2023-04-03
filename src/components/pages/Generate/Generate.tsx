@@ -1,9 +1,14 @@
 import getStyleRoot, { promptStyle } from './generateStyle';
 import { Tag, Button, TextArea, PromptBox, TextInput } from '@common';
+import { useRouter } from 'next/router';
 import { useState } from 'react';
 
 export default function Generate() {
   const styleRoot = getStyleRoot();
+  const router = useRouter();
+
+  // Access the "info" value from the router's query object
+  const queryTitle = router.query.info;
 
   const [isPromptBoxHidden, setIsPromptBoxHidden] = useState(true);
 
@@ -17,10 +22,10 @@ export default function Generate() {
         <div className="header">
           <div className="tag-container">
             <Tag>Ethereum</Tag>
-            <Tag>Maker DAO</Tag>
+            <Tag>transaction</Tag>
           </div>
           <h2 className="title">
-            Give me the transaction hash with the largest amount
+            {queryTitle}
           </h2>
         </div>
         <PromptBox isHidden={isPromptBoxHidden} style={promptStyle}></PromptBox>
@@ -51,7 +56,7 @@ export default function Generate() {
           btn="Copy"
           _onClick={() => {}}
           placeholder="Transaction hash"
-          defaultValue="0x1234567890"
+          defaultValue="NOT YET SUBMITTED"
           isReadOnly
         ></TextInput>
       </section>

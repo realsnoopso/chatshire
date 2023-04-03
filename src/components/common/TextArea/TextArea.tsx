@@ -1,22 +1,25 @@
 import { useState, forwardRef } from 'react';
 import { styleRoot } from './TextAreaStyle';
-import { Button, Icon } from '@common';
+import Button from '../Button/Button';
 
 interface TextArea {
-  placeholder: string;
-  btn: string;
-  _onClick: () => void;
+  btn?: string;
+  placeholder?: string;
+  value?: string;
+  onChange?: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
+  _onClick?: () => void;
 }
 
 const TextArea = forwardRef((props: TextArea, ref: any) => {
-  const { placeholder, btn, _onClick } = props;
-  const [value, setValue] = useState('');
+  const { placeholder, btn, _onClick, value, onChange } = props;
+  const [internalValue, setInternalValue] = useState(value || '');
 
-  function handleKeyDown(e: any) {
-    if (e.key === 'Enter') {
-      return _onClick();
+  function handleInput(e: any) {
+    const newValue = e.currentTarget.value;
+    setInternalValue(newValue);
+    if (onChange) {
+      onChange(e);
     }
-    setValue(e.currentTarget.value);
   }
 
   return (
@@ -24,7 +27,8 @@ const TextArea = forwardRef((props: TextArea, ref: any) => {
       <textarea
         placeholder={placeholder}
         className={styleRoot}
-        onKeyDown={handleKeyDown}
+        value={internalValue}
+        onInput={handleInput}
       />
       <Button size="large" _onClick={_onClick}>
         {btn}

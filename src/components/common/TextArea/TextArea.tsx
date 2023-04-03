@@ -2,16 +2,17 @@ import { useState, forwardRef } from 'react';
 import { styleRoot } from './TextAreaStyle';
 import Button from '../Button/Button';
 
-interface TextArea {
+interface TextAreaProps {
   btn?: string;
   placeholder?: string;
   value?: string;
   onChange?: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
   _onClick?: () => void;
+  style?: React.CSSProperties;
 }
 
-const TextArea = forwardRef((props: TextArea, ref: any) => {
-  const { placeholder, btn, _onClick, value, onChange } = props;
+const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>((props, ref) => {
+  const { placeholder, btn, _onClick, value, onChange, style } = props;
   const [internalValue, setInternalValue] = useState(value || '');
 
   function handleInput(e: any) {
@@ -29,6 +30,8 @@ const TextArea = forwardRef((props: TextArea, ref: any) => {
         className={styleRoot}
         value={internalValue}
         onInput={handleInput}
+        style={style}
+        ref={ref}
       />
       <Button size="large" _onClick={_onClick}>
         {btn}

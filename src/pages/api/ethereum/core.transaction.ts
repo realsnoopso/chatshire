@@ -16,7 +16,8 @@ import { ChatOpenAI } from "langchain/chat_models";
 const chat = new ChatOpenAI({ temperature: 0, maxConcurrency: 5 });
 
 type Data = {
-  name: string
+  sqlStatement?: string
+  errorMessage?: string
 }
 
 const callGPT = async (schema: FlipsideSchema, rawUserMessage: string) => {
@@ -40,8 +41,8 @@ export default async function handler(
     const rawUserMessage = req.body.userMessage;
     const ethCoreTxSchema = createEthereumCoreTransactionSchema();
     const modelResponse: string = await callGPT(ethCoreTxSchema, rawUserMessage);
-    res.status(200).json({ name: modelResponse })
+    res.status(200).json({ sqlStatement: modelResponse })
   } else {
-    res.status(405).json({ name: 'Method Not Allowed' })
+    res.status(405).json({ errorMessage: 'Method Not Allowed' })
   }
 }

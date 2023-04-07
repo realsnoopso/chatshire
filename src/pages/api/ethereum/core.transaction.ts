@@ -22,6 +22,7 @@ type Data = {
 
 const callGPT = async (schema: FlipsideSchema, rawUserMessage: string) => {
   const chatPromptTemplate = schema.toChatPromptTemplate();
+  console.log('chatPromptTemplate', chatPromptTemplate)
   const response = await chat.generatePrompt([
     await chatPromptTemplate.formatPromptValue({
       userMessage: rawUserMessage,
@@ -40,6 +41,7 @@ export default async function handler(
   if (req.method === 'POST') {
     const rawUserMessage = req.body.userMessage;
     const ethCoreTxSchema = createEthereumCoreTransactionSchema();
+    console.log('ethCoreTxSchema', ethCoreTxSchema)
     const modelResponse: string = await callGPT(ethCoreTxSchema, rawUserMessage);
     res.status(200).json({ sqlStatement: modelResponse })
   } else {

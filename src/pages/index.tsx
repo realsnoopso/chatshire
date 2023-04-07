@@ -5,6 +5,7 @@ import * as historyModule from '@mocks/history.json';
 import * as promptExampleModule from '@mocks/promptExample.json';
 import * as Types from '@types';
 import { Default } from '@layouts';
+import AmplitudeHomePage from '@/services/amplitude';
 
 export default function HomePage() {
   const history: Types.History[] = JSON.parse(
@@ -13,6 +14,8 @@ export default function HomePage() {
   const promptExample: Types.PromptExample[] = JSON.parse(
     JSON.stringify(promptExampleModule)
   ).data;
+
+  AmplitudeHomePage()
 
   return (
     <>

@@ -23,6 +23,7 @@ type Data = {
 
 const callGPT = async (schema: FlipsideSchema, rawUserMessage: string) => {
   const chatPromptTemplate = schema.toChatPromptTemplate();
+  console.log('chatPromptTemplate', chatPromptTemplate);
   const response = await chat.generatePrompt([
     await chatPromptTemplate.formatPromptValue({
       userMessage: rawUserMessage,

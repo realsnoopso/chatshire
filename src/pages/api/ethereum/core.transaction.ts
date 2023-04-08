@@ -11,7 +11,6 @@ import {
 } from 'langchain/prompts';
 import { FlipsideSchema } from '@/schema/interface';
 import { ChatOpenAI } from 'langchain/chat_models';
-import { Error } from 'mongoose';
 
 // TODO: refactor to have the dependency injection
 const chat = new ChatOpenAI({ temperature: 0, maxConcurrency: 5 });
@@ -28,7 +27,6 @@ const callGPT = async (schema: FlipsideSchema, rawUserMessage: string) => {
       userMessage: rawUserMessage,
     }),
   ]);
-  console.log({ response });
 
   // TODO: refactor this for much human readable way
   return response.generations.map((g) => g.map((m) => m.text).join(' '))[0];

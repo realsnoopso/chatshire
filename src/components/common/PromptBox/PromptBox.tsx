@@ -1,4 +1,4 @@
-import { forwardRef, useState } from 'react';
+import { forwardRef, useEffect, useState } from 'react';
 import { styleRoot } from './PromptBoxStyle';
 import { Icon, SelectBox, TextArea } from '@common';
 import { useRouter } from 'next/router';
@@ -13,12 +13,24 @@ const PromptBox = forwardRef((props: PromptBox, ref: any) => {
   const { _onClick, isHidden, style } = props;
   const router = useRouter();
 
+  const [selectedChain, setSelectedChain] = useState<string | null>(null);
+  const [selectedItem, setSelectedItem] = useState<string | null>(null);
   // Declare a state variable to store the input value
-  const [inputValue, setInputValue] = useState('');
+  const [inputValue, setInputValue] = useState<string | null>(null);
 
   // Update the input value when the user types in the textarea
   const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setInputValue(e.target.value);
+  };
+
+  const handleClick = () => {
+    if (!selectedChain || !selectedItem || !inputValue) {
+      return alert('Please fill out all required fields.');
+    }
+    router.push({
+      pathname: '/generate',
+      query: { info: inputValue },
+    });
   };
 
   return (
@@ -32,24 +44,23 @@ const PromptBox = forwardRef((props: PromptBox, ref: any) => {
           options={['Ethereum']}
           defaultOption="Select Chain"
           defaultImg="defaultEmptyImg"
+          selectedData={selectedChain}
+          _onChange={setSelectedChain}
         ></SelectBox>
         <SelectBox
           index={2}
           options={['Transactions']}
           defaultOption="Select Item"
           defaultImg="secondEmptyImg"
+          selectedData={selectedItem}
+          _onChange={setSelectedItem}
         ></SelectBox>
         <TextArea
           btn="Generate"
           placeholder="Cast your spell 🪄"
           value={inputValue}
           onChange={handleInputChange}
-          _onClick={() => {
-            router.push({
-              pathname: '/generate',
-              query: { info: inputValue },
-            });
-          }}
+          _onClick={handleClick}
         ></TextArea>
       </section>
     </>

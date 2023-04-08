@@ -42,7 +42,7 @@ export default function Generate() {
     });
 
     const responseData = await response.json();
-    console.log(responseData);
+
     setSqlQuery(responseData.sqlStatement);
 
     setLoading(false);
@@ -98,23 +98,22 @@ export default function Generate() {
       </section>
 
       <>
-        <section>
-          <h3 className="section-title">Query</h3>
-
-          {isLoading ? (
-            <>
-              <Loading>Generating SQL...</Loading>
-            </>
-          ) : (
-            <>
+        {isLoading ? (
+          <>
+            <Loading>Generating SQL...</Loading>
+          </>
+        ) : (
+          <>
+            <section>
+              <h3 className="section-title">Query</h3>
               <TextArea
                 btn="Show me a result"
                 _onClick={getGPTGeneratedSQLQuery}
                 value={sqlQuery !== '' ? sqlQuery : 'Enter a query'}
               ></TextArea>
-            </>
-          )}
-        </section>
+            </section>
+          </>
+        )}
       </>
       {showResult ? (
         <>

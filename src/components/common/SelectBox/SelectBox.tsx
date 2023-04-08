@@ -9,13 +9,22 @@ interface SelectBox {
   defaultIcon?: IconType;
   defaultImg?: IconType;
   index: number;
+  selectedData: string | null;
+  _onChange: (option: string) => void;
 }
 
 const SelectBox = forwardRef((props: SelectBox, ref: any) => {
-  const { options, defaultOption, defaultIcon, defaultImg, index } = props;
+  const {
+    options,
+    defaultOption,
+    defaultIcon,
+    defaultImg,
+    index,
+    _onChange,
+    selectedData,
+  } = props;
 
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedData, setSelectedData] = useState(null);
 
   function clickSelectBtn() {
     setIsOpen(!isOpen);
@@ -23,7 +32,7 @@ const SelectBox = forwardRef((props: SelectBox, ref: any) => {
 
   function selectOption(e: any) {
     const option = e.currentTarget.innerText;
-    setSelectedData(option);
+    _onChange(option);
     setIsOpen(!isOpen);
   }
 

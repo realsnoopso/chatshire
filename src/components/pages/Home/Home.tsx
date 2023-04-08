@@ -20,24 +20,7 @@ export default function Home() {
     <>
       <div className={styleRoot}>
         <PromptBox></PromptBox>
-        <section>
-          <h3 className="section-title">History</h3>
-          <div className="card-container">
-            {history.map((v, i) => {
-              return (
-                <Card
-                  key={i}
-                  firstTag={v.chain}
-                  secondTag={v.item}
-                  icon="copy"
-                  _onClick={() => {}}
-                >
-                  {v.prompt}
-                </Card>
-              );
-            })}
-          </div>
-        </section>
+
         <section>
           <h3 className="section-title">Prompt Example</h3>
           <div className="card-container">

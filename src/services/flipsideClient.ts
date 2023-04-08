@@ -20,7 +20,7 @@ export class FlipsideClient {
 
   constructor(userAgent: string) {
     this.baseUrl = 'https://node-api.flipsidecrypto.com';
-    this.apiKey = process.env.FLIPSIDE_API_KEY!;
+    this.apiKey = process.env.NEXT_PUBLIC_FLIPSIDE_API_KEY!;
     this.userAgent = userAgent;
     this.httpClient = axios.create({
       baseURL: this.baseUrl,

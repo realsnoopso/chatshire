@@ -6,7 +6,7 @@ import { ChainValues } from 'langchain/dist/schema';
 
 const model = new OpenAI({
   // TODO: don't post this! make it environment variable!
-  openAIApiKey: process.env.OPENAI_API_KEY,
+  openAIApiKey: process.env.NEXT_PUBLIC_OPENAI_API_KEY,
   temperature: 0.0,
 })
 

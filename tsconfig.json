@@ -28,7 +28,8 @@
       "@mocks/*": ["./src/mocks/*"],
       "@types": ["./src/types/index.tsx"],
       "@constants": ["./src/constants/index.ts"],
-      "@apis/*": ["./src/apis/*"]
+      "@apis/*": ["./src/apis/*"],
+      "@store/*": ["./src/store/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/assets/index.js"],

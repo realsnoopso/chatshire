@@ -16,7 +16,7 @@ export async function connectWallet() {
       });
       const address = accounts;
       if (address.length === 1) return String(address);
-      else return address;
+      return address;
     } catch (error) {
       console.error(error);
     }

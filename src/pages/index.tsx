@@ -1,6 +1,6 @@
 import Head from 'next/head';
 
-import { Home } from '@/components/pages/index';
+import { Home, Generate } from '@/components/pages/index';
 import * as historyModule from '@mocks/history.json';
 import * as promptExampleModule from '@mocks/promptExample.json';
 import * as Types from '@types';

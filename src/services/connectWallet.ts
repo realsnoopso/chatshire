@@ -8,6 +8,20 @@ declare global {
   }
 }
 
+export const checkIsLogin = () => {
+  if (window.ethereum) {
+    return window.ethereum.selectedAddress;
+  }
+  return false;
+};
+
+export const getAccount = () => {
+  if (window.ethereum) {
+    return window.ethereum.selectedAddress;
+  }
+  return '';
+};
+
 export async function connectWallet() {
   if (window.ethereum) {
     try {

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { styleRoot } from './defaultStyle';
 import { Gnb } from '@/components/common';
 import { connectWallet } from '@services/connectWallet';

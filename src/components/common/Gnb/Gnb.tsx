@@ -2,7 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { Button, Icon } from '@common';
 import { styleRoot } from './GnbStyle';
 import { useRouter } from 'next/router';
-import { connectWallet } from '@services/connectWallet';
+import {
+  connectWallet,
+  checkIsLogin,
+  getAccount,
+} from '@services/connectWallet';
 
 interface Gnb {
   _onClick: () => void;
@@ -30,6 +34,11 @@ const Gnb = React.forwardRef((props: Gnb) => {
   function goBack() {
     router.back();
   }
+
+  useEffect(() => {
+    const isLogin = checkIsLogin();
+    if (isLogin) setAccount(getAccount());
+  });
 
   return (
     <div className={styleRoot}>

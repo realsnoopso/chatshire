@@ -69,7 +69,7 @@ export default function Generate() {
   }
 
   useEffect(() => {
-    // createGPTGeneratedSQLQuery();
+    createGPTGeneratedSQLQuery();
     setLoading(true);
   }, []);
 
@@ -103,7 +103,7 @@ export default function Generate() {
             <TextArea
               btn="Show me a result"
               _onClick={getGPTGeneratedSQLQuery}
-              placeholder={sqlQuery !== '' ? sqlQuery : 'Enter a query'}
+              value={sqlQuery !== '' ? sqlQuery : 'Enter a query'}
               style={sqlQuery !== '' ? { fontWeight: 'bold' } : undefined}
             ></TextArea>
             {isLoading ? <LoadingIndicator /> : null}

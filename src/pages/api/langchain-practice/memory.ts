@@ -33,13 +33,17 @@ export default async function handler(
   res: NextApiResponse<Data>
 ) {
   if (req.method === 'POST') {
-    const input = req.body.input;
-    if (!input) {
-      res.status(400).json({ name: 'Bad Request' });
-      return;
+    try {
+      const input = req.body.input;
+      if (!input) {
+        res.status(400).json({ name: 'Bad Request' });
+        return;
+      }
+      const modelResponse = await callAgent(input);
+      res.status(200).json({ name: modelResponse });
+    } catch (error) {
+      console.log(error);
     }
-    const modelResponse = await callAgent(input);
-    res.status(200).json({ name: modelResponse });
   } else {
     res.status(405).json({ name: 'Method Not Allowed' });
   }

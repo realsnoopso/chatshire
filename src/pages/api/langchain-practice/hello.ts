@@ -25,8 +25,12 @@ export default async function handler(
   if (req.method === 'GET') {
     const tempText: string =
       'What would be a good company name a company that makes colorful socks?';
-    const modelResponse: string = await callModel(tempText);
-    res.status(200).json({ name: modelResponse });
+    try {
+      const modelResponse: string = await callModel(tempText);
+      res.status(200).json({ name: modelResponse });
+    } catch (error) {
+      console.log(error);
+    }
   } else {
     res.status(405).json({ name: 'Method Not Allowed' });
   }

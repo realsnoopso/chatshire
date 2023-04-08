@@ -11,33 +11,35 @@ interface TextAreaProps {
   style?: React.CSSProperties;
 }
 
-const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>((props, ref) => {
-  const { placeholder, btn, _onClick, value, onChange, style } = props;
-  const [internalValue, setInternalValue] = useState(value || '');
+const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
+  (props, ref) => {
+    const { placeholder, btn, _onClick, value, onChange, style } = props;
+    const [internalValue, setInternalValue] = useState(value || '');
 
-  function handleInput(e: any) {
-    const newValue = e.currentTarget.value;
-    setInternalValue(newValue);
-    if (onChange) {
-      onChange(e);
+    function handleInput(e: any) {
+      const newValue = e.currentTarget.value;
+      setInternalValue(newValue);
+      if (onChange) {
+        onChange(e);
+      }
     }
-  }
 
-  return (
-    <div className={styleRoot}>
-      <textarea
-        placeholder={placeholder}
-        className={styleRoot}
-        value={internalValue}
-        onInput={handleInput}
-        style={style}
-        ref={ref}
-      />
-      <Button size="large" _onClick={_onClick}>
-        {btn}
-      </Button>
-    </div>
-  );
-});
+    return (
+      <div className={styleRoot}>
+        <textarea
+          placeholder={placeholder}
+          className={styleRoot}
+          value={internalValue}
+          onInput={handleInput}
+          style={style}
+          ref={ref}
+        />
+        <Button size="large" _onClick={_onClick}>
+          {btn}
+        </Button>
+      </div>
+    );
+  }
+);
 
 export default TextArea;

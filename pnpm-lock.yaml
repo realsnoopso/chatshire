@@ -10,6 +10,7 @@ specifiers:
   '@types/react-dom': 18.0.11
   amplitude-js: ^8.21.7
   axios: ^1.3.5
+  css: link:@types/@emotion/css
   eslint: 8.36.0
   eslint-config-next: 13.2.4
   ethers: ^6.2.0
@@ -27,7 +28,6 @@ dependencies:
   '@emotion/styled': 11.10.6_oouaibmszuch5k64ms7uxp2aia
   '@types/amplitude-js': 8.16.2
   '@types/node': 18.15.1
-  '@types/react': 18.0.28
   '@types/react-dom': 18.0.11
   amplitude-js: 8.21.7
   axios: 1.3.5
@@ -41,6 +41,10 @@ dependencies:
   react-router-dom: 6.9.0_biqbaboplfbrettd7655fr4n2y
   serpapi: 1.1.1
   typescript: 4.9.5
+
+devDependencies:
+  '@types/react': 18.0.28
+  css: link:@types/@emotion/css
 
 packages:
 
@@ -504,7 +508,6 @@ packages:
 
   /@types/prop-types/15.7.5:
     resolution: {integrity: sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w==}
-    dev: false
 
   /@types/react-dom/18.0.11:
     resolution: {integrity: sha512-O38bPbI2CWtgw/OoQoY+BRelw7uysmXbWvw3nLWO21H1HSh+GOlqPuXshJfjmpNlKiiSDG9cc1JZAaMmVdcTlw==}
@@ -518,11 +521,9 @@ packages:
       '@types/prop-types': 15.7.5
       '@types/scheduler': 0.16.3
       csstype: 3.1.1
-    dev: false
 
   /@types/scheduler/0.16.3:
     resolution: {integrity: sha512-5cJ8CB4yAx7BH1oMvdU0Jh9lrEXyPkar6F9G/ERswkCuvP4KQZfZkSjcMbAICCpQTN4OuZn8tz0HiKv9TGZgrQ==}
-    dev: false
 
   /@typescript-eslint/parser/5.56.0_vgl77cfdswitgr47lm5swmv43m:
     resolution: {integrity: sha512-sn1OZmBxUsgxMmR8a8U5QM/Wl+tyqlH//jTqCg8daTAmhAk26L2PFhcqPLlYBhYUJMZJK276qLXlHN3a83o2cg==}
@@ -894,7 +895,6 @@ packages:
 
   /csstype/3.1.1:
     resolution: {integrity: sha512-DJR/VvkAvSZW9bTouZue2sSxDwdTN92uHjqeKVm+0dAqdfNykRzQ95tay8aXMBAAPpUiq4Qcug2L7neoRh2Egw==}
-    dev: false
 
   /damerau-levenshtein/1.0.8:
     resolution: {integrity: sha512-sdQSFB7+llfUcQHUQO3+B8ERRj0Oa4w9POWMI/puGtuf7gFywGmkaLCElnudfTiKZV+NvHqL0ifzdrI8Ro7ESA==}

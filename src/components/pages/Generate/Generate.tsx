@@ -2,7 +2,6 @@ import getStyleRoot, { promptStyle } from './generateStyle';
 import { Tag, Button, TextArea, PromptBox, TextInput, Loading } from '@common';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import { call } from '@apis/index';
 
 function LoadingIndicator() {
   return <Loading>Generating SQL...</Loading>;
@@ -19,6 +18,8 @@ export default function Generate() {
 
   const [isPromptBoxHidden, setIsPromptBoxHidden] = useState(true);
   const [isLoading, setLoading] = useState(false);
+  const [isResultLoading, setResultLoading] = useState(false);
+  const [showResult, setShowResult] = useState(false);
   const [sqlQuery, setSqlQuery] = useState('');
   const [queryResult, setQueryResult] = useState<FlipsideResponse>();
 
@@ -28,7 +29,6 @@ export default function Generate() {
 
   async function createGPTGeneratedSQLQuery() {
     setLoading(true);
-
     const requestBody = {
       userMessage: queryTitle,
     };
@@ -49,7 +49,8 @@ export default function Generate() {
   }
 
   async function getGPTGeneratedSQLQuery() {
-    setLoading(true);
+    setShowResult(true);
+    setResultLoading(true);
     const requestBody = {
       query: sqlQuery,
     };
@@ -65,12 +66,11 @@ export default function Generate() {
     const responseData = await response.json();
     console.log(responseData);
     setQueryResult(responseData);
-    setLoading(false);
+    setResultLoading(false);
   }
 
   useEffect(() => {
     createGPTGeneratedSQLQuery();
-    setLoading(true);
   }, []);
 
   return (
@@ -96,36 +96,50 @@ export default function Generate() {
           )}
         </div>
       </section>
-      {!isLoading ? (
+
+      <>
+        <section>
+          <h3 className="section-title">Query</h3>
+
+          {isLoading ? (
+            <>
+              <Loading>Generating SQL...</Loading>
+            </>
+          ) : (
+            <>
+              <TextArea
+                btn="Show me a result"
+                _onClick={getGPTGeneratedSQLQuery}
+                value={sqlQuery !== '' ? sqlQuery : 'Enter a query'}
+              ></TextArea>
+            </>
+          )}
+        </section>
+      </>
+      {showResult ? (
         <>
-          <section>
-            <h3 className="section-title">Query</h3>
-            <TextArea
-              btn="Show me a result"
-              _onClick={getGPTGeneratedSQLQuery}
-              value={sqlQuery !== '' ? sqlQuery : 'Enter a query'}
-              style={sqlQuery !== '' ? { fontWeight: 'bold' } : undefined}
-            ></TextArea>
-            {isLoading ? <LoadingIndicator /> : null}
-          </section>
-          <section>
-            <h3 className="section-title">Result</h3>
-            <TextInput
-              btn="Copy"
-              _onClick={() => {}}
-              placeholder="Transaction hash"
-              defaultValue="NOT YET SUBMITTED"
-              isReadOnly
-            ></TextInput>
-          </section>
+          {isResultLoading ? (
+            <>
+              <Loading>Generating Result...</Loading>
+            </>
+          ) : (
+            <>
+              <section>
+                <h3 className="section-title">Result</h3>
+                <TextInput
+                  btn="Copy"
+                  _onClick={() => {}}
+                  placeholder="Transaction hash"
+                  defaultValue={queryResult?.response}
+                  isReadOnly
+                ></TextInput>
+              </section>
+            </>
+          )}
         </>
       ) : (
-        <>
-          <Loading>Generating SQL...</Loading>
-        </>
+        <></>
       )}
-
-      {queryResult ? <div>queryResult: {queryResult.response}</div> : null}
     </div>
   );
 }

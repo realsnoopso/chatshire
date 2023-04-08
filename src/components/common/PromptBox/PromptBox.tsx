@@ -35,7 +35,7 @@ const PromptBox = forwardRef((props: PromptBox, ref: any) => {
         ></SelectBox>
         <SelectBox
           index={2}
-          options={['transactions']}
+          options={['Transactions']}
           defaultOption="Select Item"
           defaultImg="secondEmptyImg"
         ></SelectBox>

@@ -28,7 +28,7 @@ export const styleRoot = css`
 
     font-weight: 500;
     font-size: 16px;
-    line-height: 19px;
+    line-height: 24px;
     letter-spacing: 0.01em;
   }
 

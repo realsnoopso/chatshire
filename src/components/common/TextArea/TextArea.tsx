@@ -7,7 +7,7 @@ interface TextAreaProps {
   placeholder?: string;
   value?: string | null;
   onChange?: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
-  _onClick?: () => void;
+  _onClick?: React.MouseEventHandler<any>;
   style?: React.CSSProperties;
   height?: number;
 }

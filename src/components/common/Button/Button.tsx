@@ -6,7 +6,7 @@ import { IconType } from '@types';
 interface Button {
   children: React.ReactNode;
   style?: React.CSSProperties;
-  _onClick?: () => void;
+  _onClick?: React.MouseEventHandler<any>;
   size?: 'large' | 'small';
   loading?: boolean;
   icon?: IconType;

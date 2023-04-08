@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 
 interface PromptBox {
   style?: React.CSSProperties;
-  _onClick?: () => void;
+  _onClick?: React.MouseEventHandler<any>;
   isHidden?: boolean;
   copiedPrompt?: string | null;
 }
@@ -22,7 +22,7 @@ const PromptBox = forwardRef((props: PromptBox, ref: any) => {
   const [inputValue, setInputValue] = useState<string | null>(null);
 
   useEffect(() => {
-    setInputValue(copiedPrompt);
+    copiedPrompt && setInputValue(copiedPrompt);
   }, [copiedPrompt]);
 
   // Update the input value when the user types in the textarea

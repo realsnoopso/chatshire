@@ -6,7 +6,7 @@ import { IconType } from '@types';
 interface Modal {
   children: React.ReactNode;
   style?: React.CSSProperties;
-  _onClick?: () => void;
+  _onClick?: React.MouseEventHandler<any>;
   title: string;
   content: string;
 }

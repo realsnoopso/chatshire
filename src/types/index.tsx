@@ -4,7 +4,7 @@ export type IconType = keyof typeof assets;
 
 export interface Icon {
   name: IconType;
-  _onClick?: (e?: Event) => void;
+  _onClick?: React.MouseEventHandler<any>;
   fill?: string;
   size?: number;
   width?: number;

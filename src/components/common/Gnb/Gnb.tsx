@@ -12,12 +12,15 @@ interface Gnb {
 const Gnb = React.forwardRef((props: Gnb) => {
   const { _onClick, hasBackBtn } = props;
   const router = useRouter();
-  const [account, setAccount] = useState('');
-  const slice = (str: String) => str.slice(0, 5) + '...' + account.slice(-5);
+  const [account, setAccount] = useState<string | null>(null);
+  const slice = (str: String) => str.slice(0, 5) + '...' + str.slice(-5);
 
   async function handleClick() {
-    const address = await connectWallet();
-    setAccount(address);
+    const response = await connectWallet();
+    if (response.status === 400) {
+      return alert(response.message);
+    }
+    setAccount(response);
   }
 
   function clickLogo() {
@@ -40,8 +43,8 @@ const Gnb = React.forwardRef((props: Gnb) => {
         </Button>
       )}
 
-      {account !== '' ? (
-        <Button>{slice(account)}</Button>
+      {account ? (
+        <Button>{slice(account) ?? ''}</Button>
       ) : (
         <Button _onClick={handleClick}>Connect Wallet</Button>
       )}

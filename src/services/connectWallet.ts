@@ -17,11 +17,11 @@ export async function connectWallet() {
       const address = accounts;
       if (address.length === 1) return String(address);
       return address;
-    } catch (error) {
-      console.error(error);
+    } catch (error: any) {
+      return { status: 400, message: error.message };
     }
   } else {
     // MetaMask가 설치되어 있지 않은 경우
-    console.error('Please install MetaMask');
+    return { status: 400, message: 'MetaMask가 설치되어 있지 않습니다.' };
   }
 }

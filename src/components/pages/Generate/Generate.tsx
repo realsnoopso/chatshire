@@ -65,7 +65,7 @@ export default function Generate() {
     });
 
     const responseData = await response.json();
-    console.log(responseData);
+
     setQueryResult(responseData);
     setResultLoading(false);
   }

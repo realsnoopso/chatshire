@@ -14,7 +14,7 @@ type Data = {
 
 const callModel = async (text: string) => {
   const res = await model.call(text);
-  console.log(res);
+
   return res;
 };
 

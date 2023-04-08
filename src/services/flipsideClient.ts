@@ -55,7 +55,6 @@ export class FlipsideClient {
   async createFlipsideQuery(
     query: string
   ): Promise<CreateFlipsideQuerySuccessResponse> {
-    console.log('query', query);
     const endpoint = CreateQueryEndpoint;
     const req = {
       method: 'POST',

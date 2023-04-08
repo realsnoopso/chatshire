@@ -5,7 +5,7 @@ import { SerpAPI, Calculator } from 'langchain/tools';
 import { ChainValues } from 'langchain/dist/schema';
 import { BufferMemory } from 'langchain/memory';
 import { ConversationChain } from 'langchain/chains';
-import { NEXT_PUBLIC_AMPLITUDE_KEY, OPENAI_API_KEY } from '@constants';
+import { AMPLITUDE_KEY, OPENAI_API_KEY } from '@constants';
 
 const model = new OpenAI({
   // TODO: don't post this! make it environment variable!
@@ -24,7 +24,7 @@ const callAgent = async (input: string) => {
   const response = await chain.call({
     input: input,
   });
-  console.log('response', response);
+
   return response.response;
 };
 

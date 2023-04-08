@@ -18,7 +18,6 @@ type Data = {
 };
 
 const loadAgent = async () => {
-  console.log('Loaded Agent.');
   return await initializeAgentExecutor(
     tools,
     model,
@@ -30,7 +29,6 @@ const callAgent = async (input: string) => {
   const agent = await loadAgent();
   // const result = await executor.call({ input });
   const result = await agent.call({ input });
-  console.log(`Got output ${result.output}`);
   return result.output;
 };
 

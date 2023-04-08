@@ -11,9 +11,14 @@ import {
 } from 'langchain/prompts';
 import { FlipsideSchema } from '@/schema/interface';
 import { ChatOpenAI } from 'langchain/chat_models';
+import { OPENAI_API_KEY } from '@constants';
 
 // TODO: refactor to have the dependency injection
-const chat = new ChatOpenAI({ temperature: 0, maxConcurrency: 5, openAIApiKey: process.env.OPENAI_API_KEY });
+const chat = new ChatOpenAI({
+  temperature: 0,
+  maxConcurrency: 5,
+  openAIApiKey: OPENAI_API_KEY,
+});
 
 type Data = {
   sqlStatement?: string;
@@ -22,7 +27,6 @@ type Data = {
 
 const callGPT = async (schema: FlipsideSchema, rawUserMessage: string) => {
   const chatPromptTemplate = schema.toChatPromptTemplate();
-  console.log('chatPromptTemplate', chatPromptTemplate);
   const response = await chat.generatePrompt([
     await chatPromptTemplate.formatPromptValue({
       userMessage: rawUserMessage,

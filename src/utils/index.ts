@@ -9,9 +9,7 @@ export const removeLocalStorage = (key: string) =>
 export const copyToClipboard = (dataToCopy: string) => {
   navigator.clipboard
     .writeText(dataToCopy)
-    .then(() => {
-      console.log('Copied to clipboard!');
-    })
+    .then(() => {})
     .catch((error) => {
       console.error('Failed to copy to clipboard: ', error);
     });

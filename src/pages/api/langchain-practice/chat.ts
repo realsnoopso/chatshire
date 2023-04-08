@@ -5,7 +5,7 @@ import { SerpAPI, Calculator } from 'langchain/tools';
 import { ChainValues } from 'langchain/dist/schema';
 import { BufferMemory } from 'langchain/memory';
 import { ConversationChain } from 'langchain/chains';
-import { NEXT_PUBLIC_AMPLITUDE_KEY, OPENAI_API_KEY } from '@constants';
+import { AMPLITUDE_KEY, OPENAI_API_KEY } from '@constants';
 
 import { ChatOpenAI } from 'langchain/chat_models';
 import { HumanChatMessage, SystemChatMessage } from 'langchain/schema';
@@ -35,7 +35,7 @@ const chat = new ChatOpenAI({ temperature: 0 });
 
 const callNewHumanChatMessage = async (input: string) => {
   const response = await chat.call([new HumanChatMessage(input)]);
-  console.log(response);
+
   return response;
 };
 
@@ -47,7 +47,7 @@ const callBothSystemChatMsgAndHumanChatMsg = async (
     new SystemChatMessage(sysInput),
     new HumanChatMessage(humanInput),
   ]);
-  console.log(response);
+
   return response;
 };
 
@@ -64,7 +64,7 @@ const generateMultipleMsg = async (inputs1: Input[], inputs2: Input[]) => {
     [new SystemChatMessage(sysInput1), new HumanChatMessage(humanInput1)],
     [new SystemChatMessage(sysInput2), new HumanChatMessage(humanInput2)],
   ]);
-  console.log(response);
+
   return response;
 };
 
@@ -108,7 +108,6 @@ const chatWithState = async (input: string) => {
     input: input,
   });
 
-  console.log(response);
   return response;
 };
 

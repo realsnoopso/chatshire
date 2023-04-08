@@ -33,6 +33,7 @@ const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
           onInput={handleInput}
           style={style}
           ref={ref}
+          spellCheck={false}
         />
         <Button size="large" _onClick={_onClick}>
           {btn}

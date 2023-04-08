@@ -1,7 +1,8 @@
-import axios, { AxiosInstance } from "axios";
-import { request } from "http";
+import axios, { AxiosInstance } from 'axios';
+import { request } from 'http';
+import { OPENAI_API_KEY, FLIPSIDE_API_KEY } from '@constants';
 
-const CreateQueryEndpoint = "/queries";
+const CreateQueryEndpoint = '/queries';
 
 interface CreateFlipsideQuerySuccessResponse {
   token: string;
@@ -20,18 +21,18 @@ export class FlipsideClient {
 
   constructor(userAgent: string) {
     this.baseUrl = 'https://node-api.flipsidecrypto.com';
-    this.apiKey = process.env.FLIPSIDE_API_KEY!;
+    this.apiKey = FLIPSIDE_API_KEY!;
     this.userAgent = userAgent;
     this.httpClient = axios.create({
       baseURL: this.baseUrl,
       timeout: 10000,
       headers: {
-        "Content-Type": "application/json",
-        "x-api-key": this.apiKey,
+        'Content-Type': 'application/json',
+        'x-api-key': this.apiKey,
       },
     });
   }
-  
+
   private async executeRequest(req: any): Promise<any> {
     try {
       const resp = await this.httpClient.request(req);
@@ -51,15 +52,17 @@ export class FlipsideClient {
     return rsp.data;
   }
 
-  async createFlipsideQuery(query: string): Promise<CreateFlipsideQuerySuccessResponse> {
+  async createFlipsideQuery(
+    query: string
+  ): Promise<CreateFlipsideQuerySuccessResponse> {
     console.log('query', query);
     const endpoint = CreateQueryEndpoint;
     const req = {
-      method: "POST",
+      method: 'POST',
       url: this.baseUrl + endpoint,
       headers: {
-        "Content-Type": "application/json",
-        "x-api-key": this.apiKey,
+        'Content-Type': 'application/json',
+        'x-api-key': this.apiKey,
       },
       data: {
         sql: query,
@@ -71,26 +74,27 @@ export class FlipsideClient {
     return output;
   }
 
-
-async getFlipsideQueryResult(token: string): Promise<GetFlipsideQueryResultSuccessResponse> {
-  const endpoint = CreateQueryEndpoint + "/" + token;
-  const req = {
-    method: "GET",
-    url: this.baseUrl + endpoint,
-    headers: {
-      "Content-Type": "application/json",
-      "x-api-key": this.apiKey,
-    },
-  };
-  while (true) {
-    const resp = await this.executeRequest(req);
-    const output = await this.getResponseObject(resp);
-    if (output.status != "running") {
-      return output;
+  async getFlipsideQueryResult(
+    token: string
+  ): Promise<GetFlipsideQueryResultSuccessResponse> {
+    const endpoint = CreateQueryEndpoint + '/' + token;
+    const req = {
+      method: 'GET',
+      url: this.baseUrl + endpoint,
+      headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': this.apiKey,
+      },
+    };
+    while (true) {
+      const resp = await this.executeRequest(req);
+      const output = await this.getResponseObject(resp);
+      if (output.status != 'running') {
+        return output;
+      }
+      await new Promise((resolve) => setTimeout(resolve, 3000));
     }
-    await new Promise((resolve) => setTimeout(resolve, 3000));
   }
-}
 
   // async getFlipsideQueryResult(token: string): Promise<GetFlipsideQueryResultSuccessResponse> {
   //   const endpoint = CreateQueryEndpoint + "/" + token;

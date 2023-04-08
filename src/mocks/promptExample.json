@@ -1,7 +1,7 @@
 {
   "data": [
-    "Give me the transaction hash with the largest amount",
-    "Give me the transaction hash with the largest amount",
-    "Give me the transaction hash with the largest amount"
+    "Give me the transaction hash that is the most gas fee intensive in last 7 days",
+    "Give me the transaction hash that sends the most highest value in ETH for last one month",
+    "Give me the most highest gas fees throughout the all transaction hashes in last 7 days"
   ]
 }

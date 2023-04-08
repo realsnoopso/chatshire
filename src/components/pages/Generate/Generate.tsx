@@ -2,6 +2,7 @@ import getStyleRoot, { promptStyle } from './generateStyle';
 import { Tag, Button, TextArea, PromptBox, TextInput } from '@common';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
+import { call } from '@apis/index';
 
 function LoadingIndicator() {
   return <div>Loading...</div>;
@@ -9,13 +10,11 @@ function LoadingIndicator() {
 
 type FlipsideResponse = {
   response: any;
-}
+};
 
 export default function Generate() {
   const styleRoot = getStyleRoot();
   const router = useRouter();
-
-  // Access the "info" value from the router's query object
   const queryTitle = router.query.info;
 
   const [isPromptBoxHidden, setIsPromptBoxHidden] = useState(true);
@@ -81,9 +80,7 @@ export default function Generate() {
             <Tag>Ethereum</Tag>
             <Tag>transaction</Tag>
           </div>
-          <h2 className="title">
-            {queryTitle}
-          </h2>
+          <h2 className="title">{queryTitle}</h2>
         </div>
         <PromptBox isHidden={isPromptBoxHidden} style={promptStyle}></PromptBox>
         <div className="button-container">

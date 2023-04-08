@@ -69,7 +69,7 @@ export default function Generate() {
   }
 
   useEffect(() => {
-    // createGPTGeneratedSQLQuery();
+    createGPTGeneratedSQLQuery();
     setLoading(true);
   }, []);
 

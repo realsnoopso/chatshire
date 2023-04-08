@@ -8,10 +8,11 @@ interface TextInput {
   _onClick: () => void;
   defaultValue?: string;
   isReadOnly?: boolean;
+  style?: React.CSSProperties;
 }
 
 const TextInput = forwardRef((props: TextInput, ref: any) => {
-  const { placeholder, btn, _onClick, isReadOnly, defaultValue } = props;
+  const { placeholder, btn, _onClick, isReadOnly, defaultValue, style } = props;
   const [value, setValue] = useState('');
 
   function handleKeyDown(e: any) {
@@ -21,7 +22,7 @@ const TextInput = forwardRef((props: TextInput, ref: any) => {
   }
 
   return (
-    <div className={styleRoot}>
+    <div className={styleRoot} style={style}>
       <input
         type="text"
         placeholder={placeholder}

@@ -36,7 +36,15 @@ export const styleRoot = css`
     border: none;
   }
 
-  button {
+  & button.small {
     flex-grow: 1;
+    background: linear-gradient(
+      90deg,
+      rgba(20, 20, 20, 0) 0%,
+      rgba(20, 20, 20, 0) 4%,
+      var(--gray-900) 100%
+    );
+    border-radius: 0;
+    padding-left: 24px;
   }
 `;

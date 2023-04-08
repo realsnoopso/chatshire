@@ -19,7 +19,7 @@ export const styleRoot = css`
     background-color: transparent;
     outline: none;
     border: none;
-    height: 83px;
+    height: 6em;
     resize: none;
 
     -webkit-font-smoothing: antialiased;

@@ -110,6 +110,7 @@ export default function Generate() {
                 btn="Show me a result"
                 _onClick={getGPTGeneratedSQLQuery}
                 value={sqlQuery !== '' ? sqlQuery : 'Enter a query'}
+                style={{ height: '10em' }}
               ></TextArea>
             </section>
           </>

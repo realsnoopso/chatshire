@@ -9,11 +9,13 @@ interface TextAreaProps {
   onChange?: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
   _onClick?: () => void;
   style?: React.CSSProperties;
+  height?: number;
 }
 
 const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
   (props, ref) => {
-    const { placeholder, btn, _onClick, value, onChange, style } = props;
+    const { placeholder, btn, _onClick, value, onChange, style, height } =
+      props;
     const [internalValue, setInternalValue] = useState<
       string | null | undefined
     >(value || '');
@@ -35,7 +37,7 @@ const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
         <textarea
           placeholder={placeholder}
           className={styleRoot}
-          value={internalValue}
+          value={internalValue ?? ''}
           onInput={handleInput}
           style={style}
           ref={ref}

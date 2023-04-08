@@ -7,13 +7,14 @@ interface PromptBox {
   style?: React.CSSProperties;
   _onClick?: () => void;
   isHidden?: boolean;
-
-  copiedPrompt: string | null;
+  copiedPrompt?: string | null;
 }
 
 const PromptBox = forwardRef((props: PromptBox, ref: any) => {
   const { _onClick, isHidden, style, copiedPrompt } = props;
   const router = useRouter();
+
+  console.log({ router });
 
   const [selectedChain, setSelectedChain] = useState<string | null>(null);
   const [selectedItem, setSelectedItem] = useState<string | null>(null);

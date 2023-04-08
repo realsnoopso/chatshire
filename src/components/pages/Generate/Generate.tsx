@@ -1,11 +1,11 @@
 import getStyleRoot, { promptStyle } from './generateStyle';
-import { Tag, Button, TextArea, PromptBox, TextInput } from '@common';
+import { Tag, Button, TextArea, PromptBox, TextInput, Loading } from '@common';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { call } from '@apis/index';
 
 function LoadingIndicator() {
-  return <div>Loading...</div>;
+  return <Loading>Generating SQL...</Loading>;
 }
 
 type FlipsideResponse = {
@@ -69,7 +69,8 @@ export default function Generate() {
   }
 
   useEffect(() => {
-    createGPTGeneratedSQLQuery();
+    // createGPTGeneratedSQLQuery();
+    setLoading(true);
   }, []);
 
   return (
@@ -95,27 +96,35 @@ export default function Generate() {
           )}
         </div>
       </section>
+      {!isLoading ? (
+        <>
+          <section>
+            <h3 className="section-title">Query</h3>
+            <TextArea
+              btn="Show me a result"
+              _onClick={getGPTGeneratedSQLQuery}
+              placeholder={sqlQuery !== '' ? sqlQuery : 'Enter a query'}
+              style={sqlQuery !== '' ? { fontWeight: 'bold' } : undefined}
+            ></TextArea>
+            {isLoading ? <LoadingIndicator /> : null}
+          </section>
+          <section>
+            <h3 className="section-title">Result</h3>
+            <TextInput
+              btn="Copy"
+              _onClick={() => {}}
+              placeholder="Transaction hash"
+              defaultValue="NOT YET SUBMITTED"
+              isReadOnly
+            ></TextInput>
+          </section>
+        </>
+      ) : (
+        <>
+          <Loading>Generating SQL...</Loading>
+        </>
+      )}
 
-      <section>
-        <h3 className="section-title">Query</h3>
-        <TextArea
-          btn="Show me a result"
-          _onClick={getGPTGeneratedSQLQuery}
-          placeholder={sqlQuery !== '' ? sqlQuery : 'Enter a query'}
-          style={sqlQuery !== '' ? { fontWeight: 'bold' } : undefined}
-        ></TextArea>
-        {isLoading ? <LoadingIndicator /> : null}
-      </section>
-      <section>
-        <h3 className="section-title">Result</h3>
-        <TextInput
-          btn="Copy"
-          _onClick={() => {}}
-          placeholder="Transaction hash"
-          defaultValue="NOT YET SUBMITTED"
-          isReadOnly
-        ></TextInput>
-      </section>
       {queryResult ? <div>queryResult: {queryResult.response}</div> : null}
     </div>
   );

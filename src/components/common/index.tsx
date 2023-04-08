@@ -7,6 +7,7 @@ import TextInput from './TextInput/TextInput';
 import Card from './Card/Card';
 import Tag from './Tag/Tag';
 import PromptBox from './PromptBox/PromptBox';
+import Loading from './Loading/Loading';
 
 export {
   Button,
@@ -18,4 +19,5 @@ export {
   Tag,
   PromptBox,
   TextInput,
+  Loading,
 };

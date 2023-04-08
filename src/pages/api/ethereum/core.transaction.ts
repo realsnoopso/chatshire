@@ -13,7 +13,7 @@ import { FlipsideSchema } from '@/schema/interface';
 import { ChatOpenAI } from 'langchain/chat_models';
 
 // TODO: refactor to have the dependency injection
-const chat = new ChatOpenAI({ temperature: 0, maxConcurrency: 5 });
+const chat = new ChatOpenAI({ temperature: 0, maxConcurrency: 5, openAIApiKey: process.env.OPENAI_API_KEY });
 
 type Data = {
   sqlStatement?: string;

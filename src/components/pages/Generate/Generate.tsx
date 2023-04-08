@@ -15,7 +15,6 @@ type FlipsideResponse = {
 const generateEtherscanLink = (value: string) => {
   const isTransactionHash = /^0x([A-Fa-f0-9]{64})$/.test(value);
   const isBlockNumber = /^(?:0[xX])?[A-Fa-f0-9]+$/.test(value);
-
   if (isTransactionHash) {
     return `https://etherscan.io/tx/${value}`;
   } else if (isBlockNumber) {
@@ -33,7 +32,7 @@ export default function Generate() {
   const [isPromptBoxHidden, setIsPromptBoxHidden] = useState(true);
   const [isLoading, setLoading] = useState(false);
   const [isResultLoading, setResultLoading] = useState(false);
-  const [showResult, setShowResult] = useState(true);
+  const [showResult, setShowResult] = useState(false);
   const [sqlQuery, setSqlQuery] = useState('');
   const [queryResult, setQueryResult] = useState<FlipsideResponse>();
 
@@ -84,9 +83,18 @@ export default function Generate() {
 
     setQueryResult(responseData);
     setResultLoading(false);
-    const ethAddress = generateEtherscanLink(queryResult?.response)
-    ethAddress && setEthAddress(ethAddress)
+    console.log(`queryResult: ${queryResult?.response}`)
+    
   }
+
+  useEffect(()=> {
+    if (queryResult) {
+      console.log({queryResult});
+      const ethAddress = generateEtherscanLink(queryResult?.response)
+      console.log(`ethAddress: ${ethAddress}`)
+      ethAddress && setEthAddress(ethAddress)
+    }
+  },[queryResult])
 
   useEffect(() => {
     createGPTGeneratedSQLQuery();
@@ -157,10 +165,10 @@ export default function Generate() {
                     }, 1000);
                   }}
                   placeholder="Transaction hash"
-                  defaultValue={queryResult?.response}
+                  defaultValue={queryResult?.response??''}
                   isReadOnly
                 ></TextInput>
-                {!ethAddress ? (
+                {queryResult && ethAddress ? (
                   <div className='eth-address'>
                     <Button size="small">
                       <a href={ethAddress??''} target="_blank" rel="noreferrer">
@@ -168,7 +176,7 @@ export default function Generate() {
                       </a>
                     </Button>
                   </div>
-                ) : ''}
+                ) : <></>}
               </section>
             </>
           )}

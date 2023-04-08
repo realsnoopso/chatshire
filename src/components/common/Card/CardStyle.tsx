@@ -7,7 +7,8 @@ export const styleRoot = css`
   flex-grow: 1;
   width: 100%;
   display: flex;
-  height: 194px;
+  height: auto;
+  min-height: 194px;
   flex-direction: column;
 
   &:hover {

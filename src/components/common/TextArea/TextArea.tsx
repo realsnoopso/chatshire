@@ -1,11 +1,11 @@
-import { useState, forwardRef } from 'react';
+import { useState, forwardRef, useEffect } from 'react';
 import { styleRoot } from './TextAreaStyle';
 import Button from '../Button/Button';
 
 interface TextAreaProps {
   btn?: string;
   placeholder?: string;
-  value?: string;
+  value?: string | null;
   onChange?: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
   _onClick?: () => void;
   style?: React.CSSProperties;
@@ -14,7 +14,13 @@ interface TextAreaProps {
 const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
   (props, ref) => {
     const { placeholder, btn, _onClick, value, onChange, style } = props;
-    const [internalValue, setInternalValue] = useState(value || '');
+    const [internalValue, setInternalValue] = useState<
+      string | null | undefined
+    >(value || '');
+
+    useEffect(() => {
+      setInternalValue(value);
+    }, [value]);
 
     function handleInput(e: any) {
       const newValue = e.currentTarget.value;

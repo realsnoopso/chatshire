@@ -7,10 +7,12 @@ interface PromptBox {
   style?: React.CSSProperties;
   _onClick?: () => void;
   isHidden?: boolean;
+
+  copiedPrompt: string | null;
 }
 
 const PromptBox = forwardRef((props: PromptBox, ref: any) => {
-  const { _onClick, isHidden, style } = props;
+  const { _onClick, isHidden, style, copiedPrompt } = props;
   const router = useRouter();
 
   const [selectedChain, setSelectedChain] = useState<string | null>(null);
@@ -18,9 +20,14 @@ const PromptBox = forwardRef((props: PromptBox, ref: any) => {
   // Declare a state variable to store the input value
   const [inputValue, setInputValue] = useState<string | null>(null);
 
+  useEffect(() => {
+    setInputValue(copiedPrompt);
+  }, [copiedPrompt]);
+
   // Update the input value when the user types in the textarea
   const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setInputValue(e.target.value);
+    const value = e.target.value;
+    setInputValue(value);
   };
 
   const handleClick = () => {

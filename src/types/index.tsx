@@ -4,7 +4,7 @@ export type IconType = keyof typeof assets;
 
 export interface Icon {
   name: IconType;
-  _onClick?: () => void;
+  _onClick?: (e?: Event) => void;
   fill?: string;
   size?: number;
   width?: number;

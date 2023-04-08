@@ -29,7 +29,8 @@
       "@types": ["./src/types/index.tsx"],
       "@constants": ["./src/constants/index.ts"],
       "@apis/*": ["./src/apis/*"],
-      "@store/*": ["./src/store/*"]
+      "@store/*": ["./src/store/*"],
+      "@utils": ["./src/utils/index"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/assets/index.js"],

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { MouseEventHandler } from 'react';
 import { styleRoot } from './CardStyle';
 import { Icon } from '@common';
 import { IconType } from '@types';
@@ -6,7 +6,7 @@ import { IconType } from '@types';
 interface Card {
   children: React.ReactNode;
   style?: React.CSSProperties;
-  _onClick?: () => void;
+  _onClick?: React.MouseEventHandler<HTMLDivElement>;
   size?: 'large' | 'small';
   loading?: boolean;
   icon?: IconType;
@@ -19,7 +19,7 @@ const Card = React.forwardRef((props: Card, ref: any) => {
 
   return (
     <>
-      <div ref={ref} className={styleRoot}>
+      <div ref={ref} className={styleRoot} onClick={_onClick}>
         {firstTag && secondTag && (
           <div className="tag-container">
             {firstTag && <span className="firstTag">{firstTag}</span>}
@@ -29,7 +29,7 @@ const Card = React.forwardRef((props: Card, ref: any) => {
 
         <p className="content">{children}</p>
         <div className="icon-btn-container">
-          {icon && <Icon name={icon} _onClick={_onClick}></Icon>}
+          {icon && <Icon name={icon}></Icon>}
         </div>
       </div>
     </>

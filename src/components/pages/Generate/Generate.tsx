@@ -2,6 +2,7 @@ import getStyleRoot, { promptStyle } from './generateStyle';
 import { Tag, Button, TextArea, PromptBox, TextInput, Loading } from '@common';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
+import { copyToClipboard } from '@utils';
 
 function LoadingIndicator() {
   return <Loading>Generating SQL...</Loading>;
@@ -73,6 +74,8 @@ export default function Generate() {
     createGPTGeneratedSQLQuery();
   }, []);
 
+  const [resultBtnText, setResultBtnText] = useState('copy');
+
   return (
     <div className={styleRoot}>
       <section className="prompt">
@@ -127,8 +130,14 @@ export default function Generate() {
               <section>
                 <h3 className="section-title">Result</h3>
                 <TextInput
-                  btn="Copy"
-                  _onClick={() => {}}
+                  btn={resultBtnText}
+                  _onClick={() => {
+                    if (queryResult) copyToClipboard(queryResult.response);
+                    setResultBtnText('copied!');
+                    setTimeout(() => {
+                      setResultBtnText('copy');
+                    }, 1000);
+                  }}
                   placeholder="Transaction hash"
                   defaultValue={queryResult?.response}
                   isReadOnly

@@ -33,7 +33,7 @@ export default function Generate() {
   const [isPromptBoxHidden, setIsPromptBoxHidden] = useState(true);
   const [isLoading, setLoading] = useState(false);
   const [isResultLoading, setResultLoading] = useState(false);
-  const [showResult, setShowResult] = useState(false);
+  const [showResult, setShowResult] = useState(true);
   const [sqlQuery, setSqlQuery] = useState('');
   const [queryResult, setQueryResult] = useState<FlipsideResponse>();
 
@@ -62,6 +62,9 @@ export default function Generate() {
     setLoading(false);
   }
 
+  const [ethAddress, setEthAddress] = useState<string|null>(null);
+  
+
   async function getGPTGeneratedSQLQuery() {
     setShowResult(true);
     setResultLoading(true);
@@ -81,6 +84,8 @@ export default function Generate() {
 
     setQueryResult(responseData);
     setResultLoading(false);
+    const ethAddress = generateEtherscanLink(queryResult?.response)
+    ethAddress && setEthAddress(ethAddress)
   }
 
   useEffect(() => {
@@ -140,7 +145,7 @@ export default function Generate() {
             </>
           ) : (
             <>
-              <section>
+              <section className='result'>
                 <h3 className="section-title">Result</h3>
                 <TextInput
                   btn={resultBtnText}
@@ -155,15 +160,15 @@ export default function Generate() {
                   defaultValue={queryResult?.response}
                   isReadOnly
                 ></TextInput>
-                {queryResult && generateEtherscanLink(queryResult.response) ? (
-                  <a
-                  href={generateEtherscanLink(queryResult.response)}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  View on Etherscan
-                </a>
-                ) : null}
+                {!ethAddress ? (
+                  <div className='eth-address'>
+                    <Button size="small">
+                      <a href={ethAddress??''} target="_blank" rel="noreferrer">
+                        View on Etherscan
+                      </a>
+                    </Button>
+                  </div>
+                ) : ''}
               </section>
             </>
           )}

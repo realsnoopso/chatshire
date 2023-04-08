@@ -24,6 +24,13 @@ export default function getStyleRoot() {
           gap: 4px;
         }
       }
+
+      
+
+      
+
+
+      
     }
 
     section:not(:first-of-type) {
@@ -45,5 +52,20 @@ export default function getStyleRoot() {
       grid-template-columns: 1fr 1fr 1fr;
       gap: 12px;
     }
+
+    & .eth-address {
+      position: absolute;
+      top: -8px;
+      right: 0;
+     
+    }
+
+    a {
+      color: var(--primary-500);
+    };
+
+    .result {
+      position: relative;
+  }
   `;
 }

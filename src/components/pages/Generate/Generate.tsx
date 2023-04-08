@@ -12,6 +12,19 @@ type FlipsideResponse = {
   response: any;
 };
 
+const generateEtherscanLink = (value: string) => {
+  const isTransactionHash = /^0x([A-Fa-f0-9]{64})$/.test(value);
+  const isBlockNumber = /^(?:0[xX])?[A-Fa-f0-9]+$/.test(value);
+
+  if (isTransactionHash) {
+    return `https://etherscan.io/tx/${value}`;
+  } else if (isBlockNumber) {
+    return `https://etherscan.io/block/${parseInt(value, 16)}`;
+  } else {
+    return undefined;
+  }
+};
+
 export default function Generate() {
   const styleRoot = getStyleRoot();
   const router = useRouter();
@@ -142,6 +155,15 @@ export default function Generate() {
                   defaultValue={queryResult?.response}
                   isReadOnly
                 ></TextInput>
+                {queryResult && generateEtherscanLink(queryResult.response) ? (
+                  <a
+                  href={generateEtherscanLink(queryResult.response)}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  View on Etherscan
+                </a>
+                ) : null}
               </section>
             </>
           )}

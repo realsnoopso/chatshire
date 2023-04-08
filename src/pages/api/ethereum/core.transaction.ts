@@ -11,7 +11,6 @@ import {
 } from 'langchain/prompts';
 import { FlipsideSchema } from '@/schema/interface';
 import { ChatOpenAI } from 'langchain/chat_models';
-import { Error } from 'mongoose';
 
 // TODO: refactor to have the dependency injection
 const chat = new ChatOpenAI({ temperature: 0, maxConcurrency: 5 });

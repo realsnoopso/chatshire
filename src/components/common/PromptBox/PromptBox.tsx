@@ -2,6 +2,7 @@ import { forwardRef, useEffect, useState } from 'react';
 import { styleRoot } from './PromptBoxStyle';
 import { Icon, SelectBox, TextArea } from '@common';
 import { useRouter } from 'next/router';
+import { saveLocalStorage } from '@utils';
 
 interface PromptBox {
   style?: React.CSSProperties;
@@ -33,6 +34,11 @@ const PromptBox = forwardRef((props: PromptBox, ref: any) => {
     if (!selectedChain || !selectedItem || !inputValue) {
       return alert('Please fill out all required fields.');
     }
+    saveLocalStorage('history', {
+      chain: selectedChain,
+      item: selectedItem,
+      prompt: inputValue,
+    });
     router.push({
       pathname: '/generate',
       query: { info: inputValue },

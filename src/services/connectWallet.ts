@@ -36,6 +36,10 @@ export async function connectWallet() {
     }
   } else {
     // MetaMask가 설치되어 있지 않은 경우
-    return { status: 400, message: 'MetaMask가 설치되어 있지 않습니다.' };
+    return {
+      status: 400,
+      message:
+        'Please install MetaMask wallet or access the service on a desktop browser.',
+    };
   }
 }

@@ -3,10 +3,7 @@ import { Tag, Button, TextArea, PromptBox, TextInput, Loading } from '@common';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { copyToClipboard } from '@utils';
-
-function LoadingIndicator() {
-  return <Loading>Generating SQL...</Loading>;
-}
+import { getLocalStorage } from '@utils';
 
 type FlipsideResponse = {
   response: any;
@@ -15,7 +12,8 @@ type FlipsideResponse = {
 export default function Generate() {
   const styleRoot = getStyleRoot();
   const router = useRouter();
-  const queryTitle = router.query.info;
+
+  const [queryTitle, setQueryTitle] = useState(router.query.info);
 
   const [isPromptBoxHidden, setIsPromptBoxHidden] = useState(true);
   const [isLoading, setLoading] = useState(false);
@@ -28,7 +26,7 @@ export default function Generate() {
     setIsPromptBoxHidden(!isPromptBoxHidden);
   }
 
-  async function createGPTGeneratedSQLQuery() {
+  async function createGPTGeneratedSQLQuery(queryTitle: string | string[]) {
     setLoading(true);
     const requestBody = {
       userMessage: queryTitle,
@@ -71,7 +69,15 @@ export default function Generate() {
   }
 
   useEffect(() => {
-    createGPTGeneratedSQLQuery();
+    console.log({ queryTitle });
+    if (!queryTitle) {
+      const history = JSON.parse(getLocalStorage('history') || '');
+      const lastHistoryPrompt = history[history.length - 1]['prompt'];
+      createGPTGeneratedSQLQuery(lastHistoryPrompt);
+      setQueryTitle(lastHistoryPrompt);
+    } else {
+      queryTitle && createGPTGeneratedSQLQuery(queryTitle);
+    }
   }, []);
 
   const [resultBtnText, setResultBtnText] = useState('copy');

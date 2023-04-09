@@ -63,7 +63,7 @@ export default function Generate() {
     });
 
     const responseData = await response.json();
-    console.log({ responseData });
+
     setQueryResult(responseData);
     setResultLoading(false);
   }
@@ -119,7 +119,7 @@ export default function Generate() {
                 btn="Show me a result"
                 _onClick={getGPTGeneratedSQLQuery}
                 value={sqlQuery !== '' ? sqlQuery : 'Enter a query'}
-                style={{ height: '10em' }}
+                style={{ height: '12em' }}
               ></TextArea>
             </section>
           </>

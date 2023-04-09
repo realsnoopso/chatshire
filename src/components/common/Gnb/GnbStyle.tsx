@@ -11,4 +11,5 @@ export const styleRoot = css`
   width: 100%;
 
   z-index: var(--zindex-gnb);
+  background-color: var(--black);
 `;

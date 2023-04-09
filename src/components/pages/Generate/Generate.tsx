@@ -63,7 +63,7 @@ export default function Generate() {
     });
 
     const responseData = await response.json();
-
+    console.log({ responseData });
     setQueryResult(responseData);
     setResultLoading(false);
   }
@@ -135,19 +135,27 @@ export default function Generate() {
             <>
               <section>
                 <h3 className="section-title">Result</h3>
-                <TextInput
-                  btn={resultBtnText}
-                  _onClick={() => {
-                    if (queryResult) copyToClipboard(queryResult.response);
-                    setResultBtnText('copied!');
-                    setTimeout(() => {
-                      setResultBtnText('copy');
-                    }, 1000);
-                  }}
-                  placeholder="Transaction hash"
-                  defaultValue={queryResult?.response}
-                  isReadOnly
-                ></TextInput>
+                {queryResult && queryResult.response.length !== 0 ? (
+                  <TextInput
+                    btn={resultBtnText}
+                    _onClick={() => {
+                      if (queryResult) copyToClipboard(queryResult.response);
+                      setResultBtnText('copied!');
+                      setTimeout(() => {
+                        setResultBtnText('copy');
+                      }, 1000);
+                    }}
+                    placeholder="Transaction hash"
+                    defaultValue={queryResult?.response}
+                    isReadOnly
+                  ></TextInput>
+                ) : (
+                  <div className="no-result">
+                    <p>Opps! No results found 🫥</p>
+                    <p>Please modify your query and try again.</p>
+                    <Button _onClick={() => router.back()}>Back</Button>
+                  </div>
+                )}
               </section>
             </>
           )}

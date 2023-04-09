@@ -45,5 +45,22 @@ export default function getStyleRoot() {
       grid-template-columns: 1fr 1fr 1fr;
       gap: 12px;
     }
+
+    .no-result {
+      padding: 24px 0 calc(24px - 8px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: var(--gray-900);
+      border-radius: 10px;
+
+      & p {
+        text-align: center;
+        font-size: 14px;
+        line-height: 24px;
+        color: var(--gray-300);
+      }
+    }
   `;
 }

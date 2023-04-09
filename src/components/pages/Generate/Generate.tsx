@@ -9,6 +9,18 @@ type FlipsideResponse = {
   response: any;
 };
 
+const generateEtherscanLink = (value: string) => {
+  const isTransactionHash = /^0x([A-Fa-f0-9]{64})$/.test(value);
+  const isBlockNumber = /^(?:0[xX])?[A-Fa-f0-9]+$/.test(value);
+  if (isTransactionHash) {
+    return `https://etherscan.io/tx/${value}`;
+  } else if (isBlockNumber) {
+    return `https://etherscan.io/block/${parseInt(value, 16)}`;
+  } else {
+    return undefined;
+  }
+};
+
 export default function Generate() {
   const styleRoot = getStyleRoot();
   const router = useRouter();
@@ -47,6 +59,9 @@ export default function Generate() {
     setLoading(false);
   }
 
+  const [ethAddress, setEthAddress] = useState<string|null>(null);
+  
+
   async function getGPTGeneratedSQLQuery() {
     setShowResult(true);
     setResultLoading(true);
@@ -66,7 +81,18 @@ export default function Generate() {
     console.log({ responseData });
     setQueryResult(responseData);
     setResultLoading(false);
+    console.log(`queryResult: ${queryResult?.response}`)
+    
   }
+
+  useEffect(()=> {
+    if (queryResult) {
+      console.log({queryResult});
+      const ethAddress = generateEtherscanLink(queryResult?.response)
+      console.log(`ethAddress: ${ethAddress}`)
+      ethAddress && setEthAddress(ethAddress)
+    }
+  },[queryResult])
 
   useEffect(() => {
     console.log({ queryTitle });
@@ -133,7 +159,7 @@ export default function Generate() {
             </>
           ) : (
             <>
-              <section>
+              <section className='result'>
                 <h3 className="section-title">Result</h3>
                 {queryResult && queryResult.response.length !== 0 ? (
                   <TextInput

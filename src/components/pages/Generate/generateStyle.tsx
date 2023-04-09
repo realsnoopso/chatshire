@@ -24,6 +24,13 @@ export default function getStyleRoot() {
           gap: 4px;
         }
       }
+
+      
+
+      
+
+
+      
     }
 
     section:not(:first-of-type) {
@@ -62,5 +69,19 @@ export default function getStyleRoot() {
         color: var(--gray-300);
       }
     }
+    & .eth-address {
+      position: absolute;
+      top: -8px;
+      right: 0;
+     
+    }
+
+    a {
+      color: var(--primary-500);
+    };
+
+    .result {
+      position: relative;
+  }
   `;
 }

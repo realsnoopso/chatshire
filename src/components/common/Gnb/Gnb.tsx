@@ -8,16 +8,13 @@ import {
   getAccount,
 } from '@services/connectWallet';
 
-interface Gnb {
-  _onClick: () => void;
-  hasBackBtn?: boolean;
-}
+interface Gnb {}
 
 const Gnb = React.forwardRef((props: Gnb) => {
-  const { _onClick, hasBackBtn } = props;
   const router = useRouter();
   const [account, setAccount] = useState<string | null>(null);
   const slice = (str: String) => str.slice(0, 5) + '...' + str.slice(-5);
+  const hasBackBtn = router.pathname === '/' ? false : true;
 
   async function handleClick() {
     const response = await connectWallet();

@@ -11,11 +11,11 @@ export const styleRoot = css`
 
   ${mediaQuery[0]} {
     padding: 0 28px;
+    background-color: var(--black);
   }
 
   position: fixed;
   width: 100%;
 
   z-index: var(--zindex-gnb);
-  background-color: var(--black);
 `;

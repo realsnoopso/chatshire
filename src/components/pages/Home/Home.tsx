@@ -58,6 +58,19 @@ export default function Home() {
           copiedChain={copiedChain}
           copiedItem={copiedItem}
         ></PromptBox>
+
+        <section>
+          <h3 className="section-title">Prompt Example</h3>
+          <div className="card-container">
+            {promptExample.map((v, i) => {
+              return (
+                <Card key={i} icon="copy" _onClick={handleClick}>
+                  {v}
+                </Card>
+              );
+            })}
+          </div>
+        </section>
         {history ? (
           <section>
             <h3 className="section-title">History</h3>
@@ -78,19 +91,6 @@ export default function Home() {
         ) : (
           <></>
         )}
-
-        <section>
-          <h3 className="section-title">Prompt Example</h3>
-          <div className="card-container">
-            {promptExample.map((v, i) => {
-              return (
-                <Card key={i} icon="copy" _onClick={handleClick}>
-                  {v}
-                </Card>
-              );
-            })}
-          </div>
-        </section>
       </div>
     </>
   );

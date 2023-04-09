@@ -4,11 +4,7 @@ import { mediaQuery } from '@constants';
 export const styleRoot = css`
   max-width: 640px;
   margin: 0 auto;
-  padding: var(--size-gnb) 20px;
-
-  ${mediaQuery[0]} {
-    padding-top: calc(var(--size-gnb) + 8px);
-  }
+  padding: calc(var(--size-gnb) + 8px) 20px;
 
   .form {
     display: grid;

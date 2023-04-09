@@ -39,6 +39,7 @@ export const styleRoot = css`
       font-size: 16px;
       line-height: 19px;
       letter-spacing: 0.01em;
+      color: var(--gray-300);
     }
   }
 

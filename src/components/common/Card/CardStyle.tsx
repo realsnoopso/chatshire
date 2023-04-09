@@ -43,6 +43,7 @@ export const styleRoot = css`
     font-weight: 400;
     font-size: 15px;
     line-height: 140%;
+    color: var(--gray-200);
   }
 
   .icon-btn-container {

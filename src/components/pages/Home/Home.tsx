@@ -18,6 +18,7 @@ export default function Home() {
     JSON.stringify(promptExampleModule)
   ).data;
 
+  const [isLoading, setLoading] = useState(true);
   const [copiedPrompt, setCopiedPrompt] = useState<string | null>(null);
 
   const handleClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
@@ -29,7 +30,13 @@ export default function Home() {
     }
   };
 
-  return (
+  useEffect(() => {
+    setLoading(false);
+  }, []);
+
+  return isLoading ? (
+    <></>
+  ) : (
     <>
       <div className={styleRoot}>
         <PromptBox copiedPrompt={copiedPrompt}></PromptBox>

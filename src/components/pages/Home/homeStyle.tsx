@@ -20,9 +20,15 @@ export default function getStyleRoot() {
 
     ${mediaQuery[0]} {
       .card-container {
-        overflow-y: scroll;
+        overflow-x: scroll;
         margin: -20px -20px;
         padding: 20px 20px;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+
+      .card-container::-webkit-scrollbar {
+        display: none;
       }
     }
   `;

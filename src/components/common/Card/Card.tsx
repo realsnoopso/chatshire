@@ -17,6 +17,11 @@ interface Card {
 const Card = React.forwardRef((props: Card, ref: any) => {
   const { children, _onClick, icon, firstTag, secondTag } = props;
 
+  const contents =
+    String(children).length > 60 && firstTag && secondTag && children
+      ? String(children).substring(0, 60) + '...'
+      : children;
+
   return (
     <>
       <div ref={ref} className={styleRoot + ' card'} onClick={_onClick}>
@@ -27,7 +32,11 @@ const Card = React.forwardRef((props: Card, ref: any) => {
           </div>
         )}
 
-        <p className="content">{children}</p>
+        <p
+          className={'content' + (firstTag && secondTag ? ' with-tagbox' : '')}
+        >
+          {children}
+        </p>
         <div className="icon-btn-container">
           {icon && <Icon name={icon}></Icon>}
         </div>

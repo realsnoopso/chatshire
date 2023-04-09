@@ -9,7 +9,7 @@ export const styleRoot = css`
   flex-grow: 1;
   width: 100%;
   display: flex;
-  height: 194px;
+  height: 200px;
   flex-direction: column;
 
   ${mediaQuery[0]} {
@@ -37,13 +37,22 @@ export const styleRoot = css`
     letter-spacing: 0.01em;
   }
 
-  .content {
+  p.content {
     margin-bottom: 12px;
     height: 100%;
     font-weight: 400;
     font-size: 15px;
     line-height: 140%;
     color: var(--gray-200);
+    display: -webkit-box;
+    max-width: 200px;
+
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  p.content.with-tagbox {
+    -webkit-line-clamp: 4;
   }
 
   .icon-btn-container {

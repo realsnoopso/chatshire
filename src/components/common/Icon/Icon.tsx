@@ -9,7 +9,7 @@ async function loadSVGFile(url: string) {
     const assetString = await response.text();
     return assetString;
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 }
 

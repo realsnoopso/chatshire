@@ -45,7 +45,7 @@ export default function Home() {
 
     const historyStr: any = getLocalStorage('history');
     const history = JSON.parse(historyStr);
-    setHistroy(history.slice(history.length - 3, history.length).reverse());
+    setHistroy(history?.slice(history.length - 3, history.length).reverse());
   }, []);
 
   return isLoading ? (
@@ -58,7 +58,7 @@ export default function Home() {
           copiedChain={copiedChain}
           copiedItem={copiedItem}
         ></PromptBox>
-        {history?.length !== 0 ? (
+        {history ? (
           <section>
             <h3 className="section-title">History</h3>
             <div className="card-container">

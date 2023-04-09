@@ -69,7 +69,6 @@ export default function Generate() {
   }
 
   useEffect(() => {
-    console.log({ queryTitle });
     if (!queryTitle) {
       const history = JSON.parse(getLocalStorage('history') || '');
       const lastHistoryPrompt = history[history.length - 1]['prompt'];

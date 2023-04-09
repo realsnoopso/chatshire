@@ -42,7 +42,7 @@ export default async function handler(
       const modelResponse = await callAgent(input);
       res.status(200).json({ name: modelResponse });
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   } else {
     res.status(405).json({ name: 'Method Not Allowed' });

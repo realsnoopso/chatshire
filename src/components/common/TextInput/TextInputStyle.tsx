@@ -21,7 +21,7 @@ export const styleRoot = css`
     flex-grow: 1;
     padding: 0;
 
-    font-weight: 500;
+    font-weight: 400;
     font-size: 16px;
     line-height: 19px;
     letter-spacing: 0.01em;

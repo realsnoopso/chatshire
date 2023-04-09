@@ -1,4 +1,6 @@
 import { css } from '@emotion/css';
+import { mediaQuery } from '@constants';
+
 export const styleRoot = css`
   padding: 16px;
   background-color: var(--gray-900);
@@ -10,6 +12,10 @@ export const styleRoot = css`
   height: auto;
   min-height: 194px;
   flex-direction: column;
+
+  ${mediaQuery[0]} {
+    min-width: 180px;
+  }
 
   &:hover {
     cursor: pointer;

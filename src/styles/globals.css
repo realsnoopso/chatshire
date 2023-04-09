@@ -30,6 +30,9 @@
   --size-gnb: 81px;
 
   --timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+
+  --mobile: 599px;
+  --tablet: 1023px;
 }
 
 body {

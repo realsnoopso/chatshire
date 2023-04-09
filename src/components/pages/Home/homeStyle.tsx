@@ -1,4 +1,5 @@
 import { css } from '@emotion/css';
+import { mediaQuery } from '@constants';
 
 export default function getStyleRoot() {
   return css`
@@ -15,6 +16,14 @@ export default function getStyleRoot() {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
       gap: 12px;
+    }
+
+    ${mediaQuery[0]} {
+      .card-container {
+        overflow-y: scroll;
+        margin: 0 -20px;
+        padding: 0 20px;
+      }
     }
   `;
 }

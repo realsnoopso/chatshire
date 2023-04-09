@@ -19,7 +19,7 @@ const Card = React.forwardRef((props: Card, ref: any) => {
 
   return (
     <>
-      <div ref={ref} className={styleRoot} onClick={_onClick}>
+      <div ref={ref} className={styleRoot + ' card'} onClick={_onClick}>
         {firstTag && secondTag && (
           <div className="tag-container">
             {firstTag && <span className="firstTag">{firstTag}</span>}

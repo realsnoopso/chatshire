@@ -1,38 +1,31 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 미리보기
+![Screen Recording 2023-04-09 at 5 35 50 PM](https://user-images.githubusercontent.com/96381221/230763390-691e2f3a-8ced-48f9-9fe5-02716c426c27.gif)
 
-## Getting Started
+# 프로젝트 개요
 
-First, run the development server:
+ChatGPT3.5를 이용해 내가 원하는 블록체인 데이터를 조회하기 위한 SQL 쿼리문을 제공하고, 조회한 결과까지 보여주는 서비스입니다. `2023.3.13~2023.4.9`까지 약 한달 동안 주말을 이용해 짬짬히 진행되었습니다. 
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+# 기획서
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+[기획서 바로보기]([https://puzzle-roarer-58b.notion.site/snoop-396b5d3634a34f7386dbf999f06dff88](https://www.figma.com/file/fSSz2LCq9hrSObMjbB4aRE/Chatshire?node-id=165%3A668&t=AXFQjmyvh23T0sCM-1))
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+# 프로젝트 기능
+- 원하는 체인과 아이템을 선택, prompt를 입력하면 이에 해당하는 Qeury 문을 생성할 수 있다.
+- Query 문을 확정시키면 해당 쿼리 문을 실행, 블록체인 데이터 중 원하는 결과값을 확인할 수 있다.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+# 팀원
+- 소민경 (디자인 및 프론트엔드)
+- 윤기훈 (기획)
+- 박진형 (백엔드)
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+# 기술 스택
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+라이브러리: `React.js`,
+언어: `Typescript`,
+프레임워크: `Next.js`
 
-## Learn More
+# 설치 및 실행 방법
 
-To learn more about Next.js, take a look at the following resources:
+`pnpm i`, `pnpm run dev`를 통해 로컬 서버를 실행해보실 수 있습니다.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+# 개인적인 경험 및 느낀점

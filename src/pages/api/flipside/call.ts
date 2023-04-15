@@ -14,7 +14,9 @@ export default async function handler(
     const query = req.body.query;
     const flipsideClient = new FlipsideClient('chatshire');
     const flipsideResponse = await flipsideClient.createFlipsideQuery(query);
+    console.log('>>>>>>>>>> 1', flipsideResponse);
     const flipsideQueryToken = flipsideResponse.token;
+    console.log('>>>>>>>>>> 2', flipsideQueryToken);
     const flipsideQueryResult = await flipsideClient.getFlipsideQueryResult(
       flipsideQueryToken
     );

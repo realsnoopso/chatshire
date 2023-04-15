@@ -1,7 +1,3 @@
-import React, { FC, useEffect, useState } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { ethers } from 'ethers';
-
 declare global {
   interface Window {
     ethereum?: any;

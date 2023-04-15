@@ -1,17 +1,12 @@
-import { TextArea, SelectBox, Card, PromptBox } from '@components/index';
+import { Card, PromptBox } from '@components/index';
 import getStyleRoot from './homeStyle';
 import { copyToClipboard } from '@utils';
-import { forwardRef, useEffect, useState } from 'react';
-
-import * as historyModule from '@mocks/history.json';
+import { useEffect, useState } from 'react';
 import * as promptExampleModule from '@mocks/promptExample.json';
 import * as Types from '@src/types/index';
-import { useRouter } from 'next/router';
-import History from './History/History';
 import { getLocalStorage } from '@utils';
 
 export default function Home() {
-  const router = useRouter();
   const styleRoot = getStyleRoot();
   const promptExample: Types.PromptExample[] = JSON.parse(
     JSON.stringify(promptExampleModule)
@@ -42,7 +37,6 @@ export default function Home() {
 
   useEffect(() => {
     setLoading(false);
-
     const historyStr: any = getLocalStorage('history');
     const history = JSON.parse(historyStr);
     setHistroy(history?.slice(history.length - 3, history.length).reverse());

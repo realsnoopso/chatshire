@@ -59,8 +59,7 @@ export default function Generate() {
     setLoading(false);
   }
 
-  const [ethAddress, setEthAddress] = useState<string|null>(null);
-  
+  const [ethAddress, setEthAddress] = useState<string | null>(null);
 
   async function getGPTGeneratedSQLQuery() {
     setShowResult(true);
@@ -81,18 +80,17 @@ export default function Generate() {
 
     setQueryResult(responseData);
     setResultLoading(false);
-    console.log(`queryResult: ${queryResult?.response}`)
-    
+    console.log(`queryResult: ${queryResult?.response}`);
   }
 
-  useEffect(()=> {
+  useEffect(() => {
     if (queryResult) {
-      console.log({queryResult});
-      const ethAddress = generateEtherscanLink(queryResult?.response)
-      console.log(`ethAddress: ${ethAddress}`)
-      ethAddress && setEthAddress(ethAddress)
+      console.log({ queryResult });
+      const ethAddress = generateEtherscanLink(queryResult?.response);
+      console.log(`ethAddress: ${ethAddress}`);
+      ethAddress && setEthAddress(ethAddress);
     }
-  },[queryResult])
+  }, [queryResult]);
 
   useEffect(() => {
     if (!queryTitle) {
@@ -113,7 +111,7 @@ export default function Generate() {
         <div className="header">
           <div className="tag-container">
             <Tag>Ethereum</Tag>
-            <Tag>transaction</Tag>
+            <Tag>Transaction</Tag>
           </div>
           <h2 className="title">{queryTitle}</h2>
         </div>
@@ -158,7 +156,7 @@ export default function Generate() {
             </>
           ) : (
             <>
-              <section className='result'>
+              <section className="result">
                 <h3 className="section-title">Result</h3>
                 {queryResult && queryResult.response.length !== 0 ? (
                   <TextInput

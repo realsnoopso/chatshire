@@ -1,7 +1,3 @@
-# 웹사이트
-
-[바로가기](https://www.chatshire.click/)
-
 # 미리보기
 ![Screen Recording 2023-04-09 at 5 35 50 PM](https://user-images.githubusercontent.com/96381221/230763390-691e2f3a-8ced-48f9-9fe5-02716c426c27.gif)
 

@@ -1,3 +1,7 @@
+# 웹사이트
+
+[바로가기](https://www.chatshire.click/)
+
 # 미리보기
 ![Screen Recording 2023-04-09 at 5 35 50 PM](https://user-images.githubusercontent.com/96381221/230763390-691e2f3a-8ced-48f9-9fe5-02716c426c27.gif)
 
@@ -7,7 +11,7 @@ ChatGPT3.5를 이용해 내가 원하는 블록체인 데이터를 조회하기 
 
 # 기획서
 
-[기획서 바로보기]([https://puzzle-roarer-58b.notion.site/snoop-396b5d3634a34f7386dbf999f06dff88](https://www.figma.com/file/fSSz2LCq9hrSObMjbB4aRE/Chatshire?node-id=165%3A668&t=AXFQjmyvh23T0sCM-1))
+[기획서 바로보기](https://puzzle-roarer-58b.notion.site/f36f51d937c047a2a6028dbecd8528ba?pvs=4)
 
 # 프로젝트 기능
 - 원하는 체인과 아이템을 선택, prompt를 입력하면 이에 해당하는 Qeury 문을 생성할 수 있다.
